@@ -1,0 +1,3236 @@
+[
+  {
+    "simplified": "的",
+    "traditional": "的",
+    "pinyin": "de",
+    "zhuyin": "ㄉㄜ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1
+  },
+  {
+    "simplified": "了",
+    "traditional": "了",
+    "pinyin": "le",
+    "zhuyin": "ㄌㄜ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 3
+  },
+  {
+    "simplified": "我",
+    "traditional": "我",
+    "pinyin": "wǒ",
+    "zhuyin": "ㄨㄛˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 3
+  },
+  {
+    "simplified": "是",
+    "traditional": "是",
+    "pinyin": "shì",
+    "zhuyin": "ㄕˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 4
+  },
+  {
+    "simplified": "你",
+    "traditional": "你",
+    "pinyin": "nǐ",
+    "zhuyin": "ㄋㄧˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 5
+  },
+  {
+    "simplified": "在",
+    "traditional": "在",
+    "pinyin": "zài",
+    "zhuyin": "ㄗㄞˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 5
+  },
+  {
+    "simplified": "不",
+    "traditional": "不",
+    "pinyin": "bù",
+    "zhuyin": "ㄅㄨˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 9
+  },
+  {
+    "simplified": "有",
+    "traditional": "有",
+    "pinyin": "yǒu",
+    "zhuyin": "ㄧㄡˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 9
+  },
+  {
+    "simplified": "他",
+    "traditional": "他",
+    "pinyin": "tā",
+    "zhuyin": "ㄊㄚ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 10
+  },
+  {
+    "simplified": "这",
+    "traditional": "這",
+    "pinyin": "zhè",
+    "zhuyin": "ㄓㄜˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 11
+  },
+  {
+    "simplified": "个",
+    "traditional": "個",
+    "pinyin": "gě",
+    "zhuyin": "ㄍㄜˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 19
+  },
+  {
+    "simplified": "和",
+    "traditional": "咊",
+    "pinyin": "hé",
+    "zhuyin": "ㄏㄜˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 19
+  },
+  {
+    "simplified": "人",
+    "traditional": "人",
+    "pinyin": "rén",
+    "zhuyin": "ㄖㄣˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 19
+  },
+  {
+    "simplified": "说",
+    "traditional": "說",
+    "pinyin": "shuì",
+    "zhuyin": "ㄕㄨㄟˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 19
+  },
+  {
+    "simplified": "我们",
+    "traditional": "我們",
+    "pinyin": "wǒ men",
+    "zhuyin": "ㄨㄛˇ ㄇㄣ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 19
+  },
+  {
+    "simplified": "要",
+    "traditional": "要",
+    "pinyin": "yāo",
+    "zhuyin": "ㄧㄠ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 19
+  },
+  {
+    "simplified": "好",
+    "traditional": "好",
+    "pinyin": "hǎo",
+    "zhuyin": "ㄏㄠˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 20
+  },
+  {
+    "simplified": "一",
+    "traditional": "一",
+    "pinyin": "yī",
+    "zhuyin": "ㄧ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 21
+  },
+  {
+    "simplified": "会",
+    "traditional": "會",
+    "pinyin": "huì",
+    "zhuyin": "ㄏㄨㄟˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 23
+  },
+  {
+    "simplified": "也",
+    "traditional": "也",
+    "pinyin": "Yě",
+    "zhuyin": "ㄧㄝˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 23
+  },
+  {
+    "simplified": "都",
+    "traditional": "都",
+    "pinyin": "Dū",
+    "zhuyin": "ㄉㄨ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 25
+  },
+  {
+    "simplified": "对",
+    "traditional": "對",
+    "pinyin": "duì",
+    "zhuyin": "ㄉㄨㄟˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 28
+  },
+  {
+    "simplified": "到",
+    "traditional": "到",
+    "pinyin": "dào",
+    "zhuyin": "ㄉㄠˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 29
+  },
+  {
+    "simplified": "上",
+    "traditional": "上",
+    "pinyin": "shǎng",
+    "zhuyin": "ㄕㄤˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 29
+  },
+  {
+    "simplified": "来",
+    "traditional": "來",
+    "pinyin": "lái",
+    "zhuyin": "ㄌㄞˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 31
+  },
+  {
+    "simplified": "很",
+    "traditional": "很",
+    "pinyin": "hěn",
+    "zhuyin": "ㄏㄣˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 35
+  },
+  {
+    "simplified": "还",
+    "traditional": "還",
+    "pinyin": "Huán",
+    "zhuyin": "ㄏㄨㄢˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 37
+  },
+  {
+    "simplified": "去",
+    "traditional": "去",
+    "pinyin": "qù",
+    "zhuyin": "ㄑㄩˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 38
+  },
+  {
+    "simplified": "她",
+    "traditional": "她",
+    "pinyin": "tā",
+    "zhuyin": "ㄊㄚ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 38
+  },
+  {
+    "simplified": "想",
+    "traditional": "想",
+    "pinyin": "xiǎng",
+    "zhuyin": "ㄒㄧㄤˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 44
+  },
+  {
+    "simplified": "给",
+    "traditional": "給",
+    "pinyin": "gěi",
+    "zhuyin": "ㄍㄟˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 46
+  },
+  {
+    "simplified": "没有",
+    "traditional": "沒有",
+    "pinyin": "méi yǒu",
+    "zhuyin": "ㄇㄟˊ ㄧㄡˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 46
+  },
+  {
+    "simplified": "能",
+    "traditional": "能",
+    "pinyin": "Néng",
+    "zhuyin": "ㄋㄥˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 46
+  },
+  {
+    "simplified": "那",
+    "traditional": "那",
+    "pinyin": "Nā",
+    "zhuyin": "ㄋㄚ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 48
+  },
+  {
+    "simplified": "他们",
+    "traditional": "他們",
+    "pinyin": "tā men",
+    "zhuyin": "ㄊㄚ ㄇㄣ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 49
+  },
+  {
+    "simplified": "看",
+    "traditional": "看",
+    "pinyin": "kān",
+    "zhuyin": "ㄎㄢ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 52
+  },
+  {
+    "simplified": "做",
+    "traditional": "做",
+    "pinyin": "zuò",
+    "zhuyin": "ㄗㄨㄛˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 53
+  },
+  {
+    "simplified": "什么",
+    "traditional": "什麼",
+    "pinyin": "shén me",
+    "zhuyin": "ㄕㄣˊ ㄇㄜ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 55
+  },
+  {
+    "simplified": "吧",
+    "traditional": "吧",
+    "pinyin": "bā",
+    "zhuyin": "ㄅㄚ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 58
+  },
+  {
+    "simplified": "点",
+    "traditional": "點",
+    "pinyin": "diǎn",
+    "zhuyin": "ㄉㄧㄢˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 58
+  },
+  {
+    "simplified": "可以",
+    "traditional": "可以",
+    "pinyin": "kě yǐ",
+    "zhuyin": "ㄎㄜˇ ㄧˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 58
+  },
+  {
+    "simplified": "大",
+    "traditional": "大",
+    "pinyin": "dà",
+    "zhuyin": "ㄉㄚˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 66
+  },
+  {
+    "simplified": "下",
+    "traditional": "下",
+    "pinyin": "xià",
+    "zhuyin": "ㄒㄧㄚˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 70
+  },
+  {
+    "simplified": "里",
+    "traditional": "裏",
+    "pinyin": "lǐ",
+    "zhuyin": "ㄌㄧˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 75
+  },
+  {
+    "simplified": "真",
+    "traditional": "真",
+    "pinyin": "zhēn",
+    "zhuyin": "ㄓㄣ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 76
+  },
+  {
+    "simplified": "现在",
+    "traditional": "現在",
+    "pinyin": "xiàn zài",
+    "zhuyin": "ㄒㄧㄢˋ ㄗㄞˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 77
+  },
+  {
+    "simplified": "年",
+    "traditional": "年",
+    "pinyin": "Nián",
+    "zhuyin": "ㄋㄧㄢˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 79
+  },
+  {
+    "simplified": "多",
+    "traditional": "多",
+    "pinyin": "duō",
+    "zhuyin": "ㄉㄨㄛ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 80
+  },
+  {
+    "simplified": "两",
+    "traditional": "兩",
+    "pinyin": "liǎng",
+    "zhuyin": "ㄌㄧㄤˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 81
+  },
+  {
+    "simplified": "吗",
+    "traditional": "嗎",
+    "pinyin": "má",
+    "zhuyin": "ㄇㄚˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 83
+  },
+  {
+    "simplified": "天",
+    "traditional": "天",
+    "pinyin": "tiān",
+    "zhuyin": "ㄊㄧㄢ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 83
+  },
+  {
+    "simplified": "太",
+    "traditional": "太",
+    "pinyin": "tài",
+    "zhuyin": "ㄊㄞˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 87
+  },
+  {
+    "simplified": "再",
+    "traditional": "再",
+    "pinyin": "zài",
+    "zhuyin": "ㄗㄞˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 91
+  },
+  {
+    "simplified": "呢",
+    "traditional": "呢",
+    "pinyin": "ne",
+    "zhuyin": "ㄋㄜ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 96
+  },
+  {
+    "simplified": "只",
+    "traditional": "只",
+    "pinyin": "zhǐ",
+    "zhuyin": "ㄓˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 98
+  },
+  {
+    "simplified": "小",
+    "traditional": "小",
+    "pinyin": "xiǎo",
+    "zhuyin": "ㄒㄧㄠˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 100
+  },
+  {
+    "simplified": "知道",
+    "traditional": "知道",
+    "pinyin": "zhī dào",
+    "zhuyin": "ㄓ ㄉㄠˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 105
+  },
+  {
+    "simplified": "时候",
+    "traditional": "時候",
+    "pinyin": "shí hou",
+    "zhuyin": "ㄕˊ ㄏㄡ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 107
+  },
+  {
+    "simplified": "问题",
+    "traditional": "問題",
+    "pinyin": "wèn tí",
+    "zhuyin": "ㄨㄣˋ ㄊㄧˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 109
+  },
+  {
+    "simplified": "工作",
+    "traditional": "工作",
+    "pinyin": "gōng zuò",
+    "zhuyin": "ㄍㄨㄥ ㄗㄨㄛˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 111
+  },
+  {
+    "simplified": "事",
+    "traditional": "事",
+    "pinyin": "shì",
+    "zhuyin": "ㄕˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 113
+  },
+  {
+    "simplified": "它",
+    "traditional": "它",
+    "pinyin": "tā",
+    "zhuyin": "ㄊㄚ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 114
+  },
+  {
+    "simplified": "后",
+    "traditional": "后",
+    "pinyin": "Hòu",
+    "zhuyin": "ㄏㄡˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 115
+  },
+  {
+    "simplified": "家",
+    "traditional": "傢",
+    "pinyin": "jiā",
+    "zhuyin": "ㄐㄧㄚ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 124
+  },
+  {
+    "simplified": "你们",
+    "traditional": "你們",
+    "pinyin": "nǐ men",
+    "zhuyin": "ㄋㄧˇ ㄇㄣ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 127
+  },
+  {
+    "simplified": "前",
+    "traditional": "前",
+    "pinyin": "qián",
+    "zhuyin": "ㄑㄧㄢˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 127
+  },
+  {
+    "simplified": "时间",
+    "traditional": "時間",
+    "pinyin": "shí jiān",
+    "zhuyin": "ㄕˊ ㄐㄧㄢ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 127
+  },
+  {
+    "simplified": "怎么",
+    "traditional": "怎麼",
+    "pinyin": "zěn me",
+    "zhuyin": "ㄗㄣˇ ㄇㄜ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 128
+  },
+  {
+    "simplified": "爱",
+    "traditional": "愛",
+    "pinyin": "ài",
+    "zhuyin": "ㄞˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 130
+  },
+  {
+    "simplified": "这些",
+    "traditional": "這些",
+    "pinyin": "zhè xiē",
+    "zhuyin": "ㄓㄜˋ ㄒㄧㄝ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 132
+  },
+  {
+    "simplified": "喜欢",
+    "traditional": "喜歡",
+    "pinyin": "xǐ huan",
+    "zhuyin": "ㄒㄧˇ ㄏㄨㄢ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 139
+  },
+  {
+    "simplified": "吃",
+    "traditional": "吃",
+    "pinyin": "chī",
+    "zhuyin": "ㄔ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 142
+  },
+  {
+    "simplified": "谁",
+    "traditional": "誰",
+    "pinyin": "shéi",
+    "zhuyin": "ㄕㄟˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 142
+  },
+  {
+    "simplified": "新",
+    "traditional": "新",
+    "pinyin": "Xīn",
+    "zhuyin": "ㄒㄧㄣ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 150
+  },
+  {
+    "simplified": "找",
+    "traditional": "找",
+    "pinyin": "zhǎo",
+    "zhuyin": "ㄓㄠˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 152
+  },
+  {
+    "simplified": "今天",
+    "traditional": "今天",
+    "pinyin": "jīn tiān",
+    "zhuyin": "ㄐㄧㄣ ㄊㄧㄢ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 155
+  },
+  {
+    "simplified": "觉得",
+    "traditional": "覺得",
+    "pinyin": "jué de",
+    "zhuyin": "ㄐㄩㄝˊ ㄉㄜ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 161
+  },
+  {
+    "simplified": "月",
+    "traditional": "月",
+    "pinyin": "yuè",
+    "zhuyin": "ㄩㄝˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 161
+  },
+  {
+    "simplified": "几",
+    "traditional": "几",
+    "pinyin": "jī",
+    "zhuyin": "ㄐㄧ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 178
+  },
+  {
+    "simplified": "见",
+    "traditional": "見",
+    "pinyin": "jiàn",
+    "zhuyin": "ㄐㄧㄢˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 178
+  },
+  {
+    "simplified": "车",
+    "traditional": "車",
+    "pinyin": "Chē",
+    "zhuyin": "ㄔㄜ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 186
+  },
+  {
+    "simplified": "一些",
+    "traditional": "一些",
+    "pinyin": "yī xiē",
+    "zhuyin": "ㄧ ㄒㄧㄝ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 187
+  },
+  {
+    "simplified": "大家",
+    "traditional": "大家",
+    "pinyin": "dà jiā",
+    "zhuyin": "ㄉㄚˋ ㄐㄧㄚ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 189
+  },
+  {
+    "simplified": "听",
+    "traditional": "听",
+    "pinyin": "yǐn",
+    "zhuyin": "ㄧㄣˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 190
+  },
+  {
+    "simplified": "非常",
+    "traditional": "非常",
+    "pinyin": "fēi cháng",
+    "zhuyin": "ㄈㄟ ㄔㄤˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 194
+  },
+  {
+    "simplified": "开",
+    "traditional": "開",
+    "pinyin": "kāi",
+    "zhuyin": "ㄎㄞ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 195
+  },
+  {
+    "simplified": "叫",
+    "traditional": "叫",
+    "pinyin": "jiào",
+    "zhuyin": "ㄐㄧㄠˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 200
+  },
+  {
+    "simplified": "孩子",
+    "traditional": "孩子",
+    "pinyin": "hái zi",
+    "zhuyin": "ㄏㄞˊ ㄗ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 207
+  },
+  {
+    "simplified": "这里",
+    "traditional": "這裏",
+    "pinyin": "zhè lǐ",
+    "zhuyin": "ㄓㄜˋ ㄌㄧˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 209
+  },
+  {
+    "simplified": "请",
+    "traditional": "請",
+    "pinyin": "qǐng",
+    "zhuyin": "ㄑㄧㄥˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 216
+  },
+  {
+    "simplified": "钱",
+    "traditional": "錢",
+    "pinyin": "Qián",
+    "zhuyin": "ㄑㄧㄢˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 218
+  },
+  {
+    "simplified": "公司",
+    "traditional": "公司",
+    "pinyin": "gōng sī",
+    "zhuyin": "ㄍㄨㄥ ㄙ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 220
+  },
+  {
+    "simplified": "不要",
+    "traditional": "不要",
+    "pinyin": "bù yào",
+    "zhuyin": "ㄅㄨˋ ㄧㄠˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 221
+  },
+  {
+    "simplified": "本",
+    "traditional": "本",
+    "pinyin": "běn",
+    "zhuyin": "ㄅㄣˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 222
+  },
+  {
+    "simplified": "回",
+    "traditional": "回",
+    "pinyin": "huí",
+    "zhuyin": "ㄏㄨㄟˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 225
+  },
+  {
+    "simplified": "东西",
+    "traditional": "東西",
+    "pinyin": "dōng xī",
+    "zhuyin": "ㄉㄨㄥ ㄒㄧ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 226
+  },
+  {
+    "simplified": "三",
+    "traditional": "三",
+    "pinyin": "Sān",
+    "zhuyin": "ㄙㄢ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 233
+  },
+  {
+    "simplified": "买",
+    "traditional": "買",
+    "pinyin": "mǎi",
+    "zhuyin": "ㄇㄞˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 240
+  },
+  {
+    "simplified": "问",
+    "traditional": "問",
+    "pinyin": "wèn",
+    "zhuyin": "ㄨㄣˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 246
+  },
+  {
+    "simplified": "岁",
+    "traditional": "嵗",
+    "pinyin": "suì",
+    "zhuyin": "ㄙㄨㄟˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 266
+  },
+  {
+    "simplified": "号",
+    "traditional": "號",
+    "pinyin": "háo",
+    "zhuyin": "ㄏㄠˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 278
+  },
+  {
+    "simplified": "朋友",
+    "traditional": "朋友",
+    "pinyin": "péng you",
+    "zhuyin": "ㄆㄥˊ ㄧㄡ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 280
+  },
+  {
+    "simplified": "住",
+    "traditional": "住",
+    "pinyin": "zhù",
+    "zhuyin": "ㄓㄨˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 280
+  },
+  {
+    "simplified": "件",
+    "traditional": "件",
+    "pinyin": "jiàn",
+    "zhuyin": "ㄐㄧㄢˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 292
+  },
+  {
+    "simplified": "那些",
+    "traditional": "那些",
+    "pinyin": "nà xiē",
+    "zhuyin": "ㄋㄚˋ ㄒㄧㄝ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 326
+  },
+  {
+    "simplified": "水",
+    "traditional": "水",
+    "pinyin": "Shuǐ",
+    "zhuyin": "ㄕㄨㄟˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 335
+  },
+  {
+    "simplified": "写",
+    "traditional": "寫",
+    "pinyin": "xiě",
+    "zhuyin": "ㄒㄧㄝˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 352
+  },
+  {
+    "simplified": "您",
+    "traditional": "您",
+    "pinyin": "nín",
+    "zhuyin": "ㄋㄧㄣˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 357
+  },
+  {
+    "simplified": "电话",
+    "traditional": "電話",
+    "pinyin": "diàn huà",
+    "zhuyin": "ㄉㄧㄢˋ ㄏㄨㄚˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 359
+  },
+  {
+    "simplified": "女",
+    "traditional": "女",
+    "pinyin": "nǚ",
+    "zhuyin": "ㄋㄩˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 368
+  },
+  {
+    "simplified": "分",
+    "traditional": "分",
+    "pinyin": "fēn",
+    "zhuyin": "ㄈㄣ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 372
+  },
+  {
+    "simplified": "小时",
+    "traditional": "小時",
+    "pinyin": "xiǎo shí",
+    "zhuyin": "ㄒㄧㄠˇ ㄕˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 389
+  },
+  {
+    "simplified": "有些",
+    "traditional": "有些",
+    "pinyin": "yǒu xiē",
+    "zhuyin": "ㄧㄡˇ ㄒㄧㄝ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 394
+  },
+  {
+    "simplified": "日",
+    "traditional": "日",
+    "pinyin": "Rì",
+    "zhuyin": "ㄖˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 395
+  },
+  {
+    "simplified": "玩",
+    "traditional": "玩",
+    "pinyin": "wán",
+    "zhuyin": "ㄨㄢˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 415
+  },
+  {
+    "simplified": "正在",
+    "traditional": "正在",
+    "pinyin": "zhèng zài",
+    "zhuyin": "ㄓㄥˋ ㄗㄞˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 420
+  },
+  {
+    "simplified": "喝",
+    "traditional": "喝",
+    "pinyin": "hē",
+    "zhuyin": "ㄏㄜ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 428
+  },
+  {
+    "simplified": "穿",
+    "traditional": "穿",
+    "pinyin": "chuān",
+    "zhuyin": "ㄔㄨㄢ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 430
+  },
+  {
+    "simplified": "学校",
+    "traditional": "學校",
+    "pinyin": "xué xiào",
+    "zhuyin": "ㄒㄩㄝˊ ㄒㄧㄠˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 430
+  },
+  {
+    "simplified": "坐",
+    "traditional": "坐",
+    "pinyin": "Zuò",
+    "zhuyin": "ㄗㄨㄛˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 435
+  },
+  {
+    "simplified": "早",
+    "traditional": "早",
+    "pinyin": "zǎo",
+    "zhuyin": "ㄗㄠˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 445
+  },
+  {
+    "simplified": "们",
+    "traditional": "們",
+    "pinyin": "men",
+    "zhuyin": "ㄇㄣ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 457
+  },
+  {
+    "simplified": "认识",
+    "traditional": "認識",
+    "pinyin": "rèn shi",
+    "zhuyin": "ㄖㄣˋ ㄕ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 463
+  },
+  {
+    "simplified": "睡",
+    "traditional": "睡",
+    "pinyin": "shuì",
+    "zhuyin": "ㄕㄨㄟˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 464
+  },
+  {
+    "simplified": "分钟",
+    "traditional": "分鐘",
+    "pinyin": "fēn zhōng",
+    "zhuyin": "ㄈㄣ ㄓㄨㄥ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 465
+  },
+  {
+    "simplified": "明天",
+    "traditional": "明天",
+    "pinyin": "míng tiān",
+    "zhuyin": "ㄇㄧㄥˊ ㄊㄧㄢ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 469
+  },
+  {
+    "simplified": "四",
+    "traditional": "四",
+    "pinyin": "sì",
+    "zhuyin": "ㄙˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 481
+  },
+  {
+    "simplified": "块",
+    "traditional": "塊",
+    "pinyin": "kuài",
+    "zhuyin": "ㄎㄨㄞˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 483
+  },
+  {
+    "simplified": "外",
+    "traditional": "外",
+    "pinyin": "wài",
+    "zhuyin": "ㄨㄞˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 489
+  },
+  {
+    "simplified": "晚上",
+    "traditional": "晚上",
+    "pinyin": "wǎn shang",
+    "zhuyin": "ㄨㄢˇ ㄕㄤ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 502
+  },
+  {
+    "simplified": "谢谢",
+    "traditional": "謝謝",
+    "pinyin": "xiè xie",
+    "zhuyin": "ㄒㄧㄝˋ ㄒㄧㄝ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 520
+  },
+  {
+    "simplified": "学",
+    "traditional": "學",
+    "pinyin": "xué",
+    "zhuyin": "ㄒㄩㄝˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 524
+  },
+  {
+    "simplified": "多少",
+    "traditional": "多少",
+    "pinyin": "duō shǎo",
+    "zhuyin": "ㄉㄨㄛ ㄕㄠˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 526
+  },
+  {
+    "simplified": "妈妈",
+    "traditional": "媽媽",
+    "pinyin": "mā ma",
+    "zhuyin": "ㄇㄚ ㄇㄚ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 527
+  },
+  {
+    "simplified": "少",
+    "traditional": "少",
+    "pinyin": "shǎo",
+    "zhuyin": "ㄕㄠˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 538
+  },
+  {
+    "simplified": "电影",
+    "traditional": "電影",
+    "pinyin": "diàn yǐng",
+    "zhuyin": "ㄉㄧㄢˋ ㄧㄥˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 546
+  },
+  {
+    "simplified": "哪",
+    "traditional": "哪",
+    "pinyin": "nǎ",
+    "zhuyin": "ㄋㄚˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 547
+  },
+  {
+    "simplified": "昨天",
+    "traditional": "昨天",
+    "pinyin": "zuó tiān",
+    "zhuyin": "ㄗㄨㄛˊ ㄊㄧㄢ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 557
+  },
+  {
+    "simplified": "晚",
+    "traditional": "晚",
+    "pinyin": "wǎn",
+    "zhuyin": "ㄨㄢˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 558
+  },
+  {
+    "simplified": "书",
+    "traditional": "書",
+    "pinyin": "Shū",
+    "zhuyin": "ㄕㄨ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 560
+  },
+  {
+    "simplified": "五",
+    "traditional": "五",
+    "pinyin": "wǔ",
+    "zhuyin": "ㄨˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 563
+  },
+  {
+    "simplified": "先生",
+    "traditional": "先生",
+    "pinyin": "xiān sheng",
+    "zhuyin": "ㄒㄧㄢ ㄕㄥ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 586
+  },
+  {
+    "simplified": "男",
+    "traditional": "男",
+    "pinyin": "nán",
+    "zhuyin": "ㄋㄢˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 587
+  },
+  {
+    "simplified": "卖",
+    "traditional": "賣",
+    "pinyin": "mài",
+    "zhuyin": "ㄇㄞˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 590
+  },
+  {
+    "simplified": "医院",
+    "traditional": "醫院",
+    "pinyin": "yī yuàn",
+    "zhuyin": "ㄧ ㄩㄢˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 608
+  },
+  {
+    "simplified": "些",
+    "traditional": "些",
+    "pinyin": "xiē",
+    "zhuyin": "ㄒㄧㄝ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 611
+  },
+  {
+    "simplified": "狗",
+    "traditional": "狗",
+    "pinyin": "gǒu",
+    "zhuyin": "ㄍㄡˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 620
+  },
+  {
+    "simplified": "口",
+    "traditional": "口",
+    "pinyin": "kǒu",
+    "zhuyin": "ㄎㄡˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 637
+  },
+  {
+    "simplified": "学生",
+    "traditional": "學生",
+    "pinyin": "xué sheng",
+    "zhuyin": "ㄒㄩㄝˊ ㄕㄥ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 651
+  },
+  {
+    "simplified": "二",
+    "traditional": "二",
+    "pinyin": "èr",
+    "zhuyin": "ㄦˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 664
+  },
+  {
+    "simplified": "儿子",
+    "traditional": "兒子",
+    "pinyin": "ér zi",
+    "zhuyin": "ㄦˊ ㄗ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 665
+  },
+  {
+    "simplified": "歌",
+    "traditional": "歌",
+    "pinyin": "gē",
+    "zhuyin": "ㄍㄜ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 702
+  },
+  {
+    "simplified": "半",
+    "traditional": "半",
+    "pinyin": "bàn",
+    "zhuyin": "ㄅㄢˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 727
+  },
+  {
+    "simplified": "中国",
+    "traditional": "中國",
+    "pinyin": "Zhōng guó",
+    "zhuyin": "ㄓㄨㄥ ㄍㄨㄛˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 729
+  },
+  {
+    "simplified": "店",
+    "traditional": "店",
+    "pinyin": "diàn",
+    "zhuyin": "ㄉㄧㄢˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 732
+  },
+  {
+    "simplified": "元",
+    "traditional": "元",
+    "pinyin": "Yuán",
+    "zhuyin": "ㄩㄢˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 744
+  },
+  {
+    "simplified": "哪里",
+    "traditional": "哪裏",
+    "pinyin": "nǎ lǐ",
+    "zhuyin": "ㄋㄚˇ ㄌㄧˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 750
+  },
+  {
+    "simplified": "那里",
+    "traditional": "那裏",
+    "pinyin": "nà li",
+    "zhuyin": "ㄋㄚˋ ㄌㄧ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 770
+  },
+  {
+    "simplified": "电视",
+    "traditional": "電視",
+    "pinyin": "diàn shì",
+    "zhuyin": "ㄉㄧㄢˋ ㄕˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 779
+  },
+  {
+    "simplified": "下午",
+    "traditional": "下午",
+    "pinyin": "xià wǔ",
+    "zhuyin": "ㄒㄧㄚˋ ㄨˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 782
+  },
+  {
+    "simplified": "学习",
+    "traditional": "學習",
+    "pinyin": "xué xí",
+    "zhuyin": "ㄒㄩㄝˊ ㄒㄧˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 789
+  },
+  {
+    "simplified": "它们",
+    "traditional": "它們",
+    "pinyin": "tā men",
+    "zhuyin": "ㄊㄚ ㄇㄣ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 793
+  },
+  {
+    "simplified": "老师",
+    "traditional": "老師",
+    "pinyin": "lǎo shī",
+    "zhuyin": "ㄌㄠˇ ㄕ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 799
+  },
+  {
+    "simplified": "六",
+    "traditional": "六",
+    "pinyin": "liù",
+    "zhuyin": "ㄌㄧㄡˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 802
+  },
+  {
+    "simplified": "边",
+    "traditional": "邊",
+    "pinyin": "biān",
+    "zhuyin": "ㄅㄧㄢ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 803
+  },
+  {
+    "simplified": "唱",
+    "traditional": "唱",
+    "pinyin": "chàng",
+    "zhuyin": "ㄔㄤˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 813
+  },
+  {
+    "simplified": "大学",
+    "traditional": "大學",
+    "pinyin": "Dà xué",
+    "zhuyin": "ㄉㄚˋ ㄒㄩㄝˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 814
+  },
+  {
+    "simplified": "病",
+    "traditional": "病",
+    "pinyin": "bìng",
+    "zhuyin": "ㄅㄧㄥˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 827
+  },
+  {
+    "simplified": "医生",
+    "traditional": "醫生",
+    "pinyin": "yī shēng",
+    "zhuyin": "ㄧ ㄕㄥ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 827
+  },
+  {
+    "simplified": "名字",
+    "traditional": "名字",
+    "pinyin": "míng zi",
+    "zhuyin": "ㄇㄧㄥˊ ㄗ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 829
+  },
+  {
+    "simplified": "她们",
+    "traditional": "她們",
+    "pinyin": "tā men",
+    "zhuyin": "ㄊㄚ ㄇㄣ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 836
+  },
+  {
+    "simplified": "今年",
+    "traditional": "今年",
+    "pinyin": "jīn nián",
+    "zhuyin": "ㄐㄧㄣ ㄋㄧㄢˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 851
+  },
+  {
+    "simplified": "手机",
+    "traditional": "手機",
+    "pinyin": "shǒu jī",
+    "zhuyin": "ㄕㄡˇ ㄐㄧ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 857
+  },
+  {
+    "simplified": "忙",
+    "traditional": "忙",
+    "pinyin": "máng",
+    "zhuyin": "ㄇㄤˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 859
+  },
+  {
+    "simplified": "十",
+    "traditional": "十",
+    "pinyin": "shí",
+    "zhuyin": "ㄕˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 865
+  },
+  {
+    "simplified": "看见",
+    "traditional": "看見",
+    "pinyin": "kàn jiàn",
+    "zhuyin": "ㄎㄢˋ ㄐㄧㄢˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 870
+  },
+  {
+    "simplified": "女儿",
+    "traditional": "女兒",
+    "pinyin": "nǚ ér",
+    "zhuyin": "ㄋㄩˇ ㄦˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 879
+  },
+  {
+    "simplified": "说话",
+    "traditional": "說話",
+    "pinyin": "shuō huà",
+    "zhuyin": "ㄕㄨㄛ ㄏㄨㄚˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 880
+  },
+  {
+    "simplified": "爸爸",
+    "traditional": "爸爸",
+    "pinyin": "bà ba",
+    "zhuyin": "ㄅㄚˋ ㄅㄚ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 908
+  },
+  {
+    "simplified": "字",
+    "traditional": "字",
+    "pinyin": "zì",
+    "zhuyin": "ㄗˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 913
+  },
+  {
+    "simplified": "漂亮",
+    "traditional": "漂亮",
+    "pinyin": "piào liang",
+    "zhuyin": "ㄆㄧㄠˋ ㄌㄧㄤ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 915
+  },
+  {
+    "simplified": "高兴",
+    "traditional": "高興",
+    "pinyin": "gāo xìng",
+    "zhuyin": "ㄍㄠ ㄒㄧㄥˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 920
+  },
+  {
+    "simplified": "去年",
+    "traditional": "去年",
+    "pinyin": "qù nián",
+    "zhuyin": "ㄑㄩˋ ㄋㄧㄢˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 933
+  },
+  {
+    "simplified": "热",
+    "traditional": "熱",
+    "pinyin": "rè",
+    "zhuyin": "ㄖㄜˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 938
+  },
+  {
+    "simplified": "睡觉",
+    "traditional": "睡覺",
+    "pinyin": "shuì jiào",
+    "zhuyin": "ㄕㄨㄟˋ ㄐㄧㄠˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 944
+  },
+  {
+    "simplified": "电脑",
+    "traditional": "電腦",
+    "pinyin": "diàn nǎo",
+    "zhuyin": "ㄉㄧㄢˋ ㄋㄠˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 946
+  },
+  {
+    "simplified": "第",
+    "traditional": "第",
+    "pinyin": "dì",
+    "zhuyin": "ㄉㄧˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 962
+  },
+  {
+    "simplified": "读",
+    "traditional": "讀",
+    "pinyin": "dòu",
+    "zhuyin": "ㄉㄡˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1013
+  },
+  {
+    "simplified": "冷",
+    "traditional": "冷",
+    "pinyin": "Lěng",
+    "zhuyin": "ㄌㄥˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1027
+  },
+  {
+    "simplified": "飞机",
+    "traditional": "飛機",
+    "pinyin": "fēi jī",
+    "zhuyin": "ㄈㄟ ㄐㄧ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1067
+  },
+  {
+    "simplified": "早上",
+    "traditional": "早上",
+    "pinyin": "zǎo shang",
+    "zhuyin": "ㄗㄠˇ ㄕㄤ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1092
+  },
+  {
+    "simplified": "猫",
+    "traditional": "貓",
+    "pinyin": "māo",
+    "zhuyin": "ㄇㄠ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1150
+  },
+  {
+    "simplified": "打电话",
+    "traditional": "打電話",
+    "pinyin": "dǎ diàn huà",
+    "zhuyin": "ㄉㄚˇ ㄉㄧㄢˋ ㄏㄨㄚˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1218
+  },
+  {
+    "simplified": "休息",
+    "traditional": "休息",
+    "pinyin": "xiū xi",
+    "zhuyin": "ㄒㄧㄡ ㄒㄧ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1225
+  },
+  {
+    "simplified": "有的",
+    "traditional": "有的",
+    "pinyin": "yǒu de",
+    "zhuyin": "ㄧㄡˇ ㄉㄜ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1300
+  },
+  {
+    "simplified": "喂",
+    "traditional": "喂",
+    "pinyin": "wéi",
+    "zhuyin": "ㄨㄟˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1301
+  },
+  {
+    "simplified": "房间",
+    "traditional": "房間",
+    "pinyin": "fáng jiān",
+    "zhuyin": "ㄈㄤˊ ㄐㄧㄢ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1357
+  },
+  {
+    "simplified": "八",
+    "traditional": "八",
+    "pinyin": "bā",
+    "zhuyin": "ㄅㄚ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1362
+  },
+  {
+    "simplified": "怎么样",
+    "traditional": "怎麼樣",
+    "pinyin": "zěn me yàng",
+    "zhuyin": "ㄗㄣˇ ㄇㄜ˙ ㄧㄤˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1367
+  },
+  {
+    "simplified": "七",
+    "traditional": "七",
+    "pinyin": "qī",
+    "zhuyin": "ㄑㄧ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1419
+  },
+  {
+    "simplified": "菜",
+    "traditional": "菜",
+    "pinyin": "cài",
+    "zhuyin": "ㄘㄞˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1448
+  },
+  {
+    "simplified": "衣服",
+    "traditional": "衣服",
+    "pinyin": "yī fu",
+    "zhuyin": "ㄧ ㄈㄨ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1472
+  },
+  {
+    "simplified": "上班",
+    "traditional": "上班",
+    "pinyin": "shàng bān",
+    "zhuyin": "ㄕㄤˋ ㄅㄢ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1495
+  },
+  {
+    "simplified": "姐姐",
+    "traditional": "姐姐",
+    "pinyin": "jiě jie",
+    "zhuyin": "ㄐㄧㄝˇ ㄐㄧㄝ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1513
+  },
+  {
+    "simplified": "课",
+    "traditional": "課",
+    "pinyin": "kè",
+    "zhuyin": "ㄎㄜˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1517
+  },
+  {
+    "simplified": "国",
+    "traditional": "國",
+    "pinyin": "Guó",
+    "zhuyin": "ㄍㄨㄛˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1527
+  },
+  {
+    "simplified": "饭",
+    "traditional": "飯",
+    "pinyin": "fàn",
+    "zhuyin": "ㄈㄢˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1529
+  },
+  {
+    "simplified": "一半",
+    "traditional": "一半",
+    "pinyin": "yī bàn",
+    "zhuyin": "ㄧ ㄅㄢˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1554
+  },
+  {
+    "simplified": "家人",
+    "traditional": "家人",
+    "pinyin": "jiā rén",
+    "zhuyin": "ㄐㄧㄚ ㄖㄣˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1562
+  },
+  {
+    "simplified": "对不起",
+    "traditional": "對不起",
+    "pinyin": "duì bu qǐ",
+    "zhuyin": "ㄉㄨㄟˋ ㄅㄨ˙ ㄑㄧˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1577
+  },
+  {
+    "simplified": "哥哥",
+    "traditional": "哥哥",
+    "pinyin": "gē ge",
+    "zhuyin": "ㄍㄜ ㄍㄜ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1655
+  },
+  {
+    "simplified": "天气",
+    "traditional": "天氣",
+    "pinyin": "tiān qì",
+    "zhuyin": "ㄊㄧㄢ ㄑㄧˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1675
+  },
+  {
+    "simplified": "千",
+    "traditional": "千",
+    "pinyin": "qiān",
+    "zhuyin": "ㄑㄧㄢ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1728
+  },
+  {
+    "simplified": "同学",
+    "traditional": "同學",
+    "pinyin": "tóng xué",
+    "zhuyin": "ㄊㄨㄥˊ ㄒㄩㄝˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1828
+  },
+  {
+    "simplified": "好看",
+    "traditional": "好看",
+    "pinyin": "hǎo kàn",
+    "zhuyin": "ㄏㄠˇ ㄎㄢˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1877
+  },
+  {
+    "simplified": "茶",
+    "traditional": "茶",
+    "pinyin": "chá",
+    "zhuyin": "ㄔㄚˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1910
+  },
+  {
+    "simplified": "雨",
+    "traditional": "雨",
+    "pinyin": "yǔ",
+    "zhuyin": "ㄩˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1929
+  },
+  {
+    "simplified": "星期",
+    "traditional": "星期",
+    "pinyin": "xīng qī",
+    "zhuyin": "ㄒㄧㄥ ㄑㄧ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1956
+  },
+  {
+    "simplified": "雪",
+    "traditional": "雪",
+    "pinyin": "Xuě",
+    "zhuyin": "ㄒㄩㄝˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1971
+  },
+  {
+    "simplified": "九",
+    "traditional": "九",
+    "pinyin": "jiǔ",
+    "zhuyin": "ㄐㄧㄡˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 2040
+  },
+  {
+    "simplified": "妹妹",
+    "traditional": "妹妹",
+    "pinyin": "mèi mei",
+    "zhuyin": "ㄇㄟˋ ㄇㄟ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 2093
+  },
+  {
+    "simplified": "女士",
+    "traditional": "女士",
+    "pinyin": "nǚ shì",
+    "zhuyin": "ㄋㄩˇ ㄕˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 2155
+  },
+  {
+    "simplified": "上午",
+    "traditional": "上午",
+    "pinyin": "shàng wǔ",
+    "zhuyin": "ㄕㄤˋ ㄨˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 2188
+  },
+  {
+    "simplified": "贵",
+    "traditional": "貴",
+    "pinyin": "guì",
+    "zhuyin": "ㄍㄨㄟˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 2239
+  },
+  {
+    "simplified": "那边",
+    "traditional": "那邊",
+    "pinyin": "nà bian",
+    "zhuyin": "ㄋㄚˋ ㄅㄧㄢ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 2415
+  },
+  {
+    "simplified": "弟弟",
+    "traditional": "弟弟",
+    "pinyin": "dì di",
+    "zhuyin": "ㄉㄧˋ ㄉㄧ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 2424
+  },
+  {
+    "simplified": "百",
+    "traditional": "百",
+    "pinyin": "Bǎi",
+    "zhuyin": "ㄅㄞˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 2455
+  },
+  {
+    "simplified": "好吃",
+    "traditional": "好吃",
+    "pinyin": "hǎo chī",
+    "zhuyin": "ㄏㄠˇ ㄔ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 2484
+  },
+  {
+    "simplified": "明年",
+    "traditional": "明年",
+    "pinyin": "míng nián",
+    "zhuyin": "ㄇㄧㄥˊ ㄋㄧㄢˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 2487
+  },
+  {
+    "simplified": "再见",
+    "traditional": "再見",
+    "pinyin": "zài jiàn",
+    "zhuyin": "ㄗㄞˋ ㄐㄧㄢˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 2487
+  },
+  {
+    "simplified": "这儿",
+    "traditional": "這兒",
+    "pinyin": "zhè r",
+    "zhuyin": "ㄓㄜˋ ㄦ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 2522
+  },
+  {
+    "simplified": "哪儿",
+    "traditional": "哪兒",
+    "pinyin": "nǎ r",
+    "zhuyin": "ㄋㄚˇ ㄦ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 2534
+  },
+  {
+    "simplified": "苹果",
+    "traditional": "蘋果",
+    "pinyin": "píng guǒ",
+    "zhuyin": "ㄆㄧㄥˊ ㄍㄨㄛˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 2562
+  },
+  {
+    "simplified": "中午",
+    "traditional": "中午",
+    "pinyin": "zhōng wǔ",
+    "zhuyin": "ㄓㄨㄥ ㄨˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 2600
+  },
+  {
+    "simplified": "起床",
+    "traditional": "起床",
+    "pinyin": "qǐ chuáng",
+    "zhuyin": "ㄑㄧˇ ㄔㄨㄤˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 2645
+  },
+  {
+    "simplified": "开车",
+    "traditional": "開車",
+    "pinyin": "kāi chē",
+    "zhuyin": "ㄎㄞ ㄔㄜ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 2670
+  },
+  {
+    "simplified": "出租车",
+    "traditional": "出租車",
+    "pinyin": "chū zū chē",
+    "zhuyin": "ㄔㄨ ㄗㄨ ㄔㄜ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 2677
+  },
+  {
+    "simplified": "这边",
+    "traditional": "這邊",
+    "pinyin": "zhè biān",
+    "zhuyin": "ㄓㄜˋ ㄅㄧㄢ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 2774
+  },
+  {
+    "simplified": "火车",
+    "traditional": "火車",
+    "pinyin": "huǒ chē",
+    "zhuyin": "ㄏㄨㄛˇ ㄔㄜ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 2791
+  },
+  {
+    "simplified": "便宜",
+    "traditional": "便宜",
+    "pinyin": "biàn yí",
+    "zhuyin": "ㄅㄧㄢˋ ㄧˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 2814
+  },
+  {
+    "simplified": "上学",
+    "traditional": "上學",
+    "pinyin": "shàng xué",
+    "zhuyin": "ㄕㄤˋ ㄒㄩㄝˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 2965
+  },
+  {
+    "simplified": "牛奶",
+    "traditional": "牛奶",
+    "pinyin": "niú nǎi",
+    "zhuyin": "ㄋㄧㄡˊ ㄋㄞˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 2986
+  },
+  {
+    "simplified": "女朋友",
+    "traditional": "女朋友",
+    "pinyin": "nǚ péng you",
+    "zhuyin": "ㄋㄩˇ ㄆㄥˊ ㄧㄡ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 3004
+  },
+  {
+    "simplified": "上课",
+    "traditional": "上課",
+    "pinyin": "shàng kè",
+    "zhuyin": "ㄕㄤˋ ㄎㄜˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 3042
+  },
+  {
+    "simplified": "听见",
+    "traditional": "聽見",
+    "pinyin": "tīng jiàn",
+    "zhuyin": "ㄊㄧㄥ ㄐㄧㄢˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 3114
+  },
+  {
+    "simplified": "男朋友",
+    "traditional": "男朋友",
+    "pinyin": "nán péng you",
+    "zhuyin": "ㄋㄢˊ ㄆㄥˊ ㄧㄡ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 3176
+  },
+  {
+    "simplified": "下班",
+    "traditional": "下班",
+    "pinyin": "xià bān",
+    "zhuyin": "ㄒㄧㄚˋ ㄅㄢ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 3207
+  },
+  {
+    "simplified": "水果",
+    "traditional": "水果",
+    "pinyin": "shuǐ guǒ",
+    "zhuyin": "ㄕㄨㄟˇ ㄍㄨㄛˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 3271
+  },
+  {
+    "simplified": "读书",
+    "traditional": "讀書",
+    "pinyin": "dú shū",
+    "zhuyin": "ㄉㄨˊ ㄕㄨ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 3285
+  },
+  {
+    "simplified": "那儿",
+    "traditional": "那兒",
+    "pinyin": "nà r",
+    "zhuyin": "ㄋㄚˋ ㄦ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 3421
+  },
+  {
+    "simplified": "商店",
+    "traditional": "商店",
+    "pinyin": "shāng diàn",
+    "zhuyin": "ㄕㄤ ㄉㄧㄢˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 3479
+  },
+  {
+    "simplified": "鸡蛋",
+    "traditional": "雞蛋",
+    "pinyin": "jī dàn",
+    "zhuyin": "ㄐㄧ ㄉㄢˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 3501
+  },
+  {
+    "simplified": "没关系",
+    "traditional": "沒關係",
+    "pinyin": "méi guān xi",
+    "zhuyin": "ㄇㄟˊ ㄍㄨㄢ ㄒㄧ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 3541
+  },
+  {
+    "simplified": "零",
+    "traditional": "零",
+    "pinyin": "líng",
+    "zhuyin": "ㄌㄧㄥˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 3623
+  },
+  {
+    "simplified": "桌子",
+    "traditional": "桌子",
+    "pinyin": "zhuō zi",
+    "zhuyin": "ㄓㄨㄛ ㄗ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 3639
+  },
+  {
+    "simplified": "白天",
+    "traditional": "白天",
+    "pinyin": "bái tiān",
+    "zhuyin": "ㄅㄞˊ ㄊㄧㄢ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 3645
+  },
+  {
+    "simplified": "请问",
+    "traditional": "請問",
+    "pinyin": "qǐng wèn",
+    "zhuyin": "ㄑㄧㄥˇ ㄨㄣˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 3689
+  },
+  {
+    "simplified": "哪些",
+    "traditional": "哪些",
+    "pinyin": "nǎ xiē",
+    "zhuyin": "ㄋㄚˇ ㄒㄧㄝ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 3741
+  },
+  {
+    "simplified": "晚饭",
+    "traditional": "晚飯",
+    "pinyin": "wǎn fàn",
+    "zhuyin": "ㄨㄢˇ ㄈㄢˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 3794
+  },
+  {
+    "simplified": "小学",
+    "traditional": "小學",
+    "pinyin": "xiǎo xué",
+    "zhuyin": "ㄒㄧㄠˇ ㄒㄩㄝˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 3819
+  },
+  {
+    "simplified": "饭店",
+    "traditional": "飯店",
+    "pinyin": "fàn diàn",
+    "zhuyin": "ㄈㄢˋ ㄉㄧㄢˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 3998
+  },
+  {
+    "simplified": "中学",
+    "traditional": "中學",
+    "pinyin": "zhōng xué",
+    "zhuyin": "ㄓㄨㄥ ㄒㄩㄝˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 4042
+  },
+  {
+    "simplified": "面包",
+    "traditional": "麵包",
+    "pinyin": "miàn bāo",
+    "zhuyin": "ㄇㄧㄢˋ ㄅㄠ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 4138
+  },
+  {
+    "simplified": "生病",
+    "traditional": "生病",
+    "pinyin": "shēng bìng",
+    "zhuyin": "ㄕㄥ ㄅㄧㄥˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 4336
+  },
+  {
+    "simplified": "好听",
+    "traditional": "好聽",
+    "pinyin": "hǎo tīng",
+    "zhuyin": "ㄏㄠˇ ㄊㄧㄥ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 4355
+  },
+  {
+    "simplified": "大学生",
+    "traditional": "大學生",
+    "pinyin": "dà xué shēng",
+    "zhuyin": "ㄉㄚˋ ㄒㄩㄝˊ ㄕㄥ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 4422
+  },
+  {
+    "simplified": "超市",
+    "traditional": "超市",
+    "pinyin": "chāo shì",
+    "zhuyin": "ㄔㄠ ㄕˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 4427
+  },
+  {
+    "simplified": "椅子",
+    "traditional": "椅子",
+    "pinyin": "yǐ zi",
+    "zhuyin": "ㄧˇ ㄗ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 4472
+  },
+  {
+    "simplified": "小朋友",
+    "traditional": "小朋友",
+    "pinyin": "xiǎo péng yǒu",
+    "zhuyin": "ㄒㄧㄠˇ ㄆㄥˊ ㄧㄡˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 4536
+  },
+  {
+    "simplified": "午饭",
+    "traditional": "午飯",
+    "pinyin": "wǔ fàn",
+    "zhuyin": "ㄨˇ ㄈㄢˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 4986
+  },
+  {
+    "simplified": "做饭",
+    "traditional": "做飯",
+    "pinyin": "zuò fàn",
+    "zhuyin": "ㄗㄨㄛˋ ㄈㄢˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 5512
+  },
+  {
+    "simplified": "下雨",
+    "traditional": "下雨",
+    "pinyin": "xià yǔ",
+    "zhuyin": "ㄒㄧㄚˋ ㄩˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 5648
+  },
+  {
+    "simplified": "杯子",
+    "traditional": "杯子",
+    "pinyin": "bēi zi",
+    "zhuyin": "ㄅㄟ ㄗ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 6162
+  },
+  {
+    "simplified": "中文",
+    "traditional": "中文",
+    "pinyin": "Zhōng wén",
+    "zhuyin": "ㄓㄨㄥ ㄨㄣˊ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 6459
+  },
+  {
+    "simplified": "早饭",
+    "traditional": "早飯",
+    "pinyin": "zǎo fàn",
+    "zhuyin": "ㄗㄠˇ ㄈㄢˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 6748
+  },
+  {
+    "simplified": "一点儿",
+    "traditional": "一點兒",
+    "pinyin": "yī diǎn r",
+    "zhuyin": "ㄧ ㄉㄧㄢˇ ㄦ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 6921
+  },
+  {
+    "simplified": "书店",
+    "traditional": "書店",
+    "pinyin": "shū diàn",
+    "zhuyin": "ㄕㄨ ㄉㄧㄢˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 7174
+  },
+  {
+    "simplified": "星期天",
+    "traditional": "星期天",
+    "pinyin": "Xīng qī tiān",
+    "zhuyin": "ㄒㄧㄥ ㄑㄧ ㄊㄧㄢ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 7577
+  },
+  {
+    "simplified": "看病",
+    "traditional": "看病",
+    "pinyin": "kàn bìng",
+    "zhuyin": "ㄎㄢˋ ㄅㄧㄥˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 7705
+  },
+  {
+    "simplified": "电影院",
+    "traditional": "電影院",
+    "pinyin": "diàn yǐng yuàn",
+    "zhuyin": "ㄉㄧㄢˋ ㄧㄥˇ ㄩㄢˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 7945
+  },
+  {
+    "simplified": "下课",
+    "traditional": "下課",
+    "pinyin": "xià kè",
+    "zhuyin": "ㄒㄧㄚˋ ㄎㄜˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 9694
+  },
+  {
+    "simplified": "米饭",
+    "traditional": "米飯",
+    "pinyin": "mǐ fàn",
+    "zhuyin": "ㄇㄧˇ ㄈㄢˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 10194
+  },
+  {
+    "simplified": "有点儿",
+    "traditional": "有點兒",
+    "pinyin": "yǒu diǎn r",
+    "zhuyin": "ㄧㄡˇ ㄉㄧㄢˇ ㄦ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 11175
+  },
+  {
+    "simplified": "饺子",
+    "traditional": "餃子",
+    "pinyin": "jiǎo zi",
+    "zhuyin": "ㄐㄧㄠˇ ㄗ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 11834
+  },
+  {
+    "simplified": "小学生",
+    "traditional": "小學生",
+    "pinyin": "xiǎo xué shēng",
+    "zhuyin": "ㄒㄧㄠˇ ㄒㄩㄝˊ ㄕㄥ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 12165
+  },
+  {
+    "simplified": "外边",
+    "traditional": "外邊",
+    "pinyin": "wài bian",
+    "zhuyin": "ㄨㄞˋ ㄅㄧㄢ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 12319
+  },
+  {
+    "simplified": "中学生",
+    "traditional": "中學生",
+    "pinyin": "zhōng xué shēng",
+    "zhuyin": "ㄓㄨㄥ ㄒㄩㄝˊ ㄕㄥ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 12707
+  },
+  {
+    "simplified": "星期日",
+    "traditional": "星期日",
+    "pinyin": "Xīng qī rì",
+    "zhuyin": "ㄒㄧㄥ ㄑㄧ ㄖˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 12997
+  },
+  {
+    "simplified": "汉语",
+    "traditional": "漢語",
+    "pinyin": "Hàn yǔ",
+    "zhuyin": "ㄏㄢˋ ㄩˇ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 13422
+  },
+  {
+    "simplified": "包子",
+    "traditional": "包子",
+    "pinyin": "bāo zi",
+    "zhuyin": "ㄅㄠ ㄗ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 16315
+  },
+  {
+    "simplified": "不客气",
+    "traditional": "不客氣",
+    "pinyin": "bù kè qi",
+    "zhuyin": "ㄅㄨˋ ㄎㄜˋ ㄑㄧ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 16723
+  },
+  {
+    "simplified": "汉字",
+    "traditional": "漢字",
+    "pinyin": "hàn zì",
+    "zhuyin": "ㄏㄢˋ ㄗˋ",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 19725
+  },
+  {
+    "simplified": "好玩儿",
+    "traditional": "好玩兒",
+    "pinyin": "hǎo wán r",
+    "zhuyin": "ㄏㄠˇ ㄨㄢˊ ㄦ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 23411
+  },
+  {
+    "simplified": "面条儿",
+    "traditional": "麵條兒",
+    "pinyin": "miàn tiáo r",
+    "zhuyin": "ㄇㄧㄢˋ ㄊㄧㄠˊ ㄦ˙",
+    "level": {
+      "system": "HSK",
+      "value": 1
+    },
+    "freq": 1000000
+  }
+]

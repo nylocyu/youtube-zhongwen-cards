@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <title>YouTube Zhongwen Cards</title>
+    <link rel="stylesheet" href="sidepanel.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>词 Zhongwen Cards</h1>
+      <button id="open-options" type="button" class="icon-button" title="Einstellungen">⚙️</button>
+    </header>
+
+    <main>
+      <section id="view-welcome" class="view">
+        <p>Öffne ein YouTube-Video mit Untertiteln, um Chinesisch-Vokabelkarten zu erstellen.</p>
+      </section>
+
+      <section id="view-missing-keys" class="view">
+        <p>Bitte hinterlege zuerst deinen Supadata- und Anthropic-API-Key in den Einstellungen.</p>
+        <button id="missing-keys-open-options" type="button" class="primary-button">Einstellungen öffnen</button>
+      </section>
+
+      <section id="view-setup" class="view">
+        <p class="video-title" id="setup-video-title"></p>
+
+        <div class="field">
+          <label for="level-select">HSK-Level</label>
+          <select id="level-select">
+            <option value="1">HSK 1</option>
+            <option value="2">HSK 2</option>
+            <option value="3">HSK 3</option>
+            <option value="4">HSK 4</option>
+            <option value="5">HSK 5</option>
+            <option value="6">HSK 6</option>
+            <option value="7">HSK 7–9</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Schrift</label>
+          <div class="segmented" id="script-toggle" role="group">
+            <button type="button" data-value="simplified" class="segmented-option">简体 Vereinfacht</button>
+            <button type="button" data-value="traditional" class="segmented-option">繁體 Traditionell</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="count-range">Anzahl Vokabeln: <span id="count-value">20</span></label>
+          <input type="range" id="count-range" min="10" max="50" step="1" value="20" />
+        </div>
+
+        <button id="generate-button" type="button" class="primary-button">Vokabeln generieren</button>
+      </section>
+
+      <section id="view-loading" class="view">
+        <div class="spinner" aria-hidden="true"></div>
+        <p id="loading-phase">Wird geladen…</p>
+      </section>
+
+      <section id="view-results" class="view">
+        <p class="results-summary" id="results-summary"></p>
+        <div class="table-wrap">
+          <table id="results-table">
+            <thead>
+              <tr>
+                <th>Hanzi</th>
+                <th>Pinyin</th>
+                <th>Deutsch</th>
+              </tr>
+            </thead>
+            <tbody id="results-tbody"></tbody>
+          </table>
+        </div>
+        <div class="results-actions">
+          <button id="export-button" type="button" class="primary-button">Als TSV exportieren</button>
+          <button id="regenerate-button" type="button" class="secondary-button">Neu generieren</button>
+        </div>
+      </section>
+
+      <section id="view-error" class="view">
+        <p id="error-message"></p>
+        <button id="error-options-link" type="button" class="secondary-button" hidden>Einstellungen öffnen</button>
+        <button id="error-back-button" type="button" class="secondary-button">Zurück</button>
+      </section>
+    </main>
+
+    <script src="settings.js"></script>
+    <script src="vocab-lib.js"></script>
+    <script src="sidepanel.js"></script>
+  </body>
+</html>
