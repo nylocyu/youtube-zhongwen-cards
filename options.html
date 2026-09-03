@@ -7,30 +7,38 @@
   </head>
   <body>
     <main>
-      <h1>词 YouTube Zhongwen Cards — Einstellungen</h1>
+      <h1>词 YouTube Zhongwen Cards — <span data-i18n="optionsTitleSuffix">Einstellungen</span></h1>
 
-      <p class="hint">
-        Diese Extension nutzt zwei eigene API-Keys: <strong>Supadata</strong> für YouTube-Transkripte und
-        <strong>Anthropic</strong> (Claude) für Übersetzung und Themenauswahl. Beides bleibt lokal auf diesem
-        Gerät gespeichert — kein eigener Server, keine Analyse, keine Weitergabe.
+      <p class="hint" data-i18n="apiKeysHint">
+        Diese Extension nutzt zwei eigene API-Keys: Supadata für YouTube-Transkripte und
+        Anthropic (Claude) für Übersetzung und Themenauswahl. Beides bleibt lokal auf diesem Gerät
+        gespeichert — kein eigener Server, keine Analyse, keine Weitergabe.
       </p>
 
       <section class="field-group">
-        <label for="supadata-key">Supadata API-Key</label>
+        <label for="supadata-key" data-i18n="supadataKeyLabel">Supadata API-Key</label>
         <input type="password" id="supadata-key" autocomplete="off" placeholder="sd_…" />
-        <a href="https://dash.supadata.ai/auth/sign-up" target="_blank" rel="noopener">Supadata-Key erstellen ↗</a>
+        <a href="https://dash.supadata.ai/auth/sign-up" target="_blank" rel="noopener" data-i18n="supadataKeyLinkText">Supadata-Key erstellen ↗</a>
       </section>
 
       <section class="field-group">
-        <label for="anthropic-key">Anthropic API-Key</label>
+        <label for="anthropic-key" data-i18n="anthropicKeyLabel">Anthropic API-Key</label>
         <input type="password" id="anthropic-key" autocomplete="off" placeholder="sk-ant-…" />
-        <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">Anthropic-Key erstellen ↗</a>
+        <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener" data-i18n="anthropicKeyLinkText">Anthropic-Key erstellen ↗</a>
       </section>
 
-      <h2>Standardwerte</h2>
+      <section class="field-group">
+        <label for="ui-language" data-i18n="baseLanguageLabel">Ausgangssprache</label>
+        <select id="ui-language">
+          <option value="de">Deutsch</option>
+          <option value="en">English</option>
+        </select>
+      </section>
+
+      <h2 data-i18n="defaultsHeading">Standardwerte</h2>
 
       <section class="field-group">
-        <label for="default-level">HSK-Level</label>
+        <label for="default-level" data-i18n="hskLevelLabel">HSK-Level</label>
         <select id="default-level">
           <option value="1">HSK 1</option>
           <option value="2">HSK 2</option>
@@ -43,22 +51,23 @@
       </section>
 
       <section class="field-group">
-        <label for="default-script">Schrift</label>
+        <label for="default-script" data-i18n="scriptLabel">Schrift</label>
         <select id="default-script">
-          <option value="simplified">简体 Vereinfacht</option>
-          <option value="traditional">繁體 Traditionell</option>
+          <option value="simplified" data-i18n="scriptSimplified">简体 Vereinfacht</option>
+          <option value="traditional" data-i18n="scriptTraditional">繁體 Traditionell</option>
         </select>
       </section>
 
       <section class="field-group">
-        <label for="default-count">Anzahl Vokabeln (10–50)</label>
+        <label for="default-count" data-i18n="countRangeLabel">Anzahl Vokabeln (10–50)</label>
         <input type="number" id="default-count" min="10" max="50" step="1" />
       </section>
 
-      <button id="save-button" type="button" class="primary-button">Speichern</button>
+      <button id="save-button" type="button" class="primary-button" data-i18n="saveButton">Speichern</button>
       <span id="save-status" role="status"></span>
     </main>
 
+    <script src="i18n.js"></script>
     <script src="settings.js"></script>
     <script src="options.js"></script>
   </body>

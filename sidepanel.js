@@ -8,6 +8,10 @@ let currentVideo = null; // {videoId, title, description}
 let currentCards = null; // last generated cards, for TSV export
 let scriptChoice = "simplified";
 
+function currentLang() {
+  return (currentSettings && currentSettings.uiLanguage) || "de";
+}
+
 function showView(name) {
   for (const v of VIEWS) {
     document.getElementById(`view-${v}`).classList.toggle("active", v === name);
@@ -22,7 +26,7 @@ function setLoadingPhase(text) {
 // this Promise pending forever.
 function sendMessage(action, payload) {
   return new Promise((resolve, reject) => {
-    const timeoutId = setTimeout(() => reject(new Error("Zeitüberschreitung bei der Anfrage.")), 130000);
+    const timeoutId = setTimeout(() => reject(new Error(ZWC_I18N.t(currentLang(), "requestTimeout"))), 130000);
     chrome.runtime.sendMessage({ action, ...payload }, (response) => {
       clearTimeout(timeoutId);
       if (chrome.runtime.lastError) {
@@ -48,20 +52,6 @@ function applyDefaultsToControls() {
   updateScriptToggle();
 }
 
-const ERROR_MESSAGES = {
-  MISSING_SUPADATA_KEY: "Kein Supadata API-Key hinterlegt.",
-  MISSING_AI_KEY: "Kein Anthropic API-Key hinterlegt.",
-  INVALID_SUPADATA_KEY: "Der Supadata API-Key ist ungültig.",
-  INVALID_AI_KEY: "Der Anthropic API-Key ist ungültig.",
-  NO_TRANSCRIPT: "Für dieses Video ist kein Transkript verfügbar.",
-  VIDEO_NOT_FOUND: "Video nicht gefunden oder privat.",
-  RATE_LIMITED: "Supadata Rate-Limit erreicht — versuche es später erneut.",
-  AI_RATE_LIMITED: "Anthropic Rate-Limit erreicht — versuche es später erneut.",
-  NOT_A_VIDEO: "Kein YouTube-Video in diesem Tab geöffnet.",
-  NO_MATCHES: "Keine passenden Vokabeln auf diesem Level im Transkript gefunden.",
-  NO_CARDS: "Es konnten keine gültigen Vokabelkarten erzeugt werden.",
-};
-
 const KEY_ERROR_CODES = new Set([
   "MISSING_SUPADATA_KEY",
   "MISSING_AI_KEY",
@@ -70,14 +60,16 @@ const KEY_ERROR_CODES = new Set([
 ]);
 
 function showError(response) {
+  const lang = currentLang();
   const code = response && response.error;
-  const message = (code && ERROR_MESSAGES[code]) || (response && response.message) || "Unbekannter Fehler.";
+  const message = code ? ZWC_I18N.t(lang, `error.${code}`) : (response && response.message) || ZWC_I18N.t(lang, "error.UNKNOWN");
   document.getElementById("error-message").textContent = message;
   document.getElementById("error-options-link").hidden = !KEY_ERROR_CODES.has(code);
   showView("error");
 }
 
 function renderResults(vocabRes) {
+  const lang = currentLang();
   const tbody = document.getElementById("results-tbody");
   tbody.innerHTML = "";
   for (const card of vocabRes.cards) {
@@ -86,19 +78,23 @@ function renderResults(vocabRes) {
     hanziTd.textContent = card.hanzi;
     const pinyinTd = document.createElement("td");
     pinyinTd.textContent = card.pinyin;
-    const germanTd = document.createElement("td");
-    germanTd.textContent = card.german;
-    tr.append(hanziTd, pinyinTd, germanTd);
+    const translationTd = document.createElement("td");
+    translationTd.textContent = card.translation;
+    tr.append(hanziTd, pinyinTd, translationTd);
     tbody.appendChild(tr);
   }
-  const caseLabel = vocabRes.caseUsed === "A" ? "aus dem Transkript" : "thematisch generiert";
-  document.getElementById("results-summary").textContent = `${vocabRes.cards.length} Vokabeln (${caseLabel})`;
+  const caseLabelKey = vocabRes.caseUsed === "A" ? "caseLabelTranscript" : "caseLabelTopic";
+  document.getElementById("results-summary").textContent = ZWC_I18N.t(lang, "resultsSummary", {
+    count: vocabRes.cards.length,
+    caseLabel: ZWC_I18N.t(lang, caseLabelKey),
+  });
   showView("results");
 }
 
 async function onGenerate() {
+  const lang = currentLang();
   showView("loading");
-  setLoadingPhase("Transkript wird geladen…");
+  setLoadingPhase(ZWC_I18N.t(lang, "loadingTranscript"));
 
   try {
     const transcriptRes = await sendMessage("fetchTranscript", { videoId: currentVideo.videoId });
@@ -107,7 +103,7 @@ async function onGenerate() {
       return;
     }
 
-    setLoadingPhase("Vokabeln werden ausgewählt und übersetzt…");
+    setLoadingPhase(ZWC_I18N.t(lang, "loadingVocab"));
 
     const level = Number(document.getElementById("level-select").value);
     const count = Number(document.getElementById("count-range").value);
@@ -143,7 +139,11 @@ function onExport() {
   const blob = new Blob([tsv], { type: "text/tab-separated-values" });
   const url = URL.createObjectURL(blob);
   const level = document.getElementById("level-select").value;
-  const filename = `chinesisch-vokabeln-${currentVideo.videoId}-HSK${level}-${currentCards.length}.tsv`;
+  const filename = ZWC_I18N.t(currentLang(), "tsvFilename", {
+    videoId: currentVideo.videoId,
+    level,
+    count: currentCards.length,
+  });
   chrome.downloads.download({ url, filename, saveAs: true }, () => {
     URL.revokeObjectURL(url);
   });
@@ -172,6 +172,18 @@ function wireStaticControls() {
   document.getElementById("export-button").addEventListener("click", onExport);
   document.getElementById("regenerate-button").addEventListener("click", () => showView("setup"));
   document.getElementById("error-back-button").addEventListener("click", () => showView("setup"));
+
+  // Live re-translation: options.html writes settings directly to
+  // chrome.storage.local, so a change while this panel is already open
+  // (e.g. the user flips the language on the options page) is picked up here.
+  chrome.storage.onChanged.addListener((changes, area) => {
+    if (area !== "local" || !changes[ZWC_SETTINGS.STORAGE_KEY]) return;
+    const newSettings = ZWC_SETTINGS.normalize(changes[ZWC_SETTINGS.STORAGE_KEY].newValue);
+    if (currentSettings && newSettings.uiLanguage !== currentSettings.uiLanguage) {
+      currentSettings = newSettings;
+      ZWC_I18N.applyI18n(document, currentLang());
+    }
+  });
 }
 
 async function detectVideoAndShowSetup() {
@@ -191,6 +203,7 @@ async function init() {
   const settingsRes = await sendMessage("getSettings", {});
   currentSettings = settingsRes.settings;
   applyDefaultsToControls();
+  ZWC_I18N.applyI18n(document, currentLang());
 
   if (!ZWC_SETTINGS.hasRequiredKeys(currentSettings)) {
     showView("missing-keys");

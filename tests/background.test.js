@@ -105,6 +105,12 @@ test("levelLabel: level 7 is labeled as the merged 7-9 band", () => {
   assert.equal(T.levelLabel(3), "HSK 3");
 });
 
+test("targetLanguageLabel: maps uiLanguage to the German prompt-facing label", () => {
+  assert.equal(T.targetLanguageLabel("en"), "Englisch");
+  assert.equal(T.targetLanguageLabel("de"), "Deutsch");
+  assert.equal(T.targetLanguageLabel("bogus"), "Deutsch");
+});
+
 test("resolveHanzi: picks simplified or traditional by script", () => {
   const card = { simplified: "气候", traditional: "氣候" };
   assert.equal(T.resolveHanzi(card, "simplified"), "气候");

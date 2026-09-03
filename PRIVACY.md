@@ -34,7 +34,7 @@ sends your Anthropic API key plus, depending on the situation:
 
 - If the video's transcript is already Chinese: the selected Chinese words
   and one supporting sentence per word from the transcript, for translation
-  into German.
+  into your chosen base language (German or English, set in Options).
 - If the video is not in Chinese: the video's title, a truncated excerpt of
   its description and transcript, and the candidate HSK word list for your
   chosen level — so Claude can pick topically relevant words and translate

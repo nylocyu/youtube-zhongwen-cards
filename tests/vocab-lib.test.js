@@ -65,56 +65,56 @@ test("matchCandidatesInTranscript: no matches returns empty array", () => {
 });
 
 test("parseLooseJson: parses a plain JSON array", () => {
-  assert.deepEqual(parseLooseJson('[{"id":"0","german":"Klima"}]'), [{ id: "0", german: "Klima" }]);
+  assert.deepEqual(parseLooseJson('[{"id":"0","translation":"Klima"}]'), [{ id: "0", translation: "Klima" }]);
 });
 
 test("parseLooseJson: strips ```json fences", () => {
-  const raw = '```json\n[{"id":"0","german":"Klima"}]\n```';
-  assert.deepEqual(parseLooseJson(raw), [{ id: "0", german: "Klima" }]);
+  const raw = '```json\n[{"id":"0","translation":"Klima"}]\n```';
+  assert.deepEqual(parseLooseJson(raw), [{ id: "0", translation: "Klima" }]);
 });
 
 test("parseLooseJson: tolerates trailing commas", () => {
-  const raw = '[{"id":"0","german":"Klima"},]';
-  assert.deepEqual(parseLooseJson(raw), [{ id: "0", german: "Klima" }]);
+  const raw = '[{"id":"0","translation":"Klima"},]';
+  assert.deepEqual(parseLooseJson(raw), [{ id: "0", translation: "Klima" }]);
 });
 
 test("parseLooseJson: returns null for unparseable garbage", () => {
   assert.equal(parseLooseJson("not json at all"), null);
 });
 
-test("validateAndRebuildVocabResponse: rebuilds facts from source, trusts only german", () => {
+test("validateAndRebuildVocabResponse: rebuilds facts from source, trusts only translation", () => {
   const sourceById = new Map([
     ["0", { simplified: "气候", traditional: "氣候", pinyin: "qìhòu", zhuyin: "z", level: { system: "HSK", value: 3 } }],
   ]);
-  const llmItems = [{ id: "0", simplified: "HALLUCINATED", pinyin: "wrong", german: "Klima" }];
+  const llmItems = [{ id: "0", simplified: "HALLUCINATED", pinyin: "wrong", translation: "Klima" }];
   const { cards, droppedIds } = validateAndRebuildVocabResponse(llmItems, sourceById);
   assert.equal(cards.length, 1);
   assert.equal(cards[0].simplified, "气候"); // from source, not the LLM's own echo
   assert.equal(cards[0].pinyin, "qìhòu");
-  assert.equal(cards[0].german, "Klima");
+  assert.equal(cards[0].translation, "Klima");
   assert.deepEqual(droppedIds, []);
 });
 
 test("validateAndRebuildVocabResponse: drops hallucinated ids not in the candidate list", () => {
   const sourceById = new Map([["0", { simplified: "气候", traditional: "氣候", pinyin: "qìhòu", level: { system: "HSK", value: 3 } }]]);
   const llmItems = [
-    { id: "0", german: "Klima" },
-    { id: "99", german: "Erfundenes Wort" },
+    { id: "0", translation: "Klima" },
+    { id: "99", translation: "Erfundenes Wort" },
   ];
   const { cards, droppedIds } = validateAndRebuildVocabResponse(llmItems, sourceById);
   assert.equal(cards.length, 1);
   assert.deepEqual(droppedIds, ["99"]);
 });
 
-test("validateAndRebuildVocabResponse: drops entries with missing/empty german", () => {
+test("validateAndRebuildVocabResponse: drops entries with missing/empty translation", () => {
   const sourceById = new Map([["0", { simplified: "气候", traditional: "氣候", pinyin: "qìhòu", level: { system: "HSK", value: 3 } }]]);
-  const { cards } = validateAndRebuildVocabResponse([{ id: "0", german: "" }], sourceById);
+  const { cards } = validateAndRebuildVocabResponse([{ id: "0", translation: "" }], sourceById);
   assert.equal(cards.length, 0);
 });
 
 test("validateAndRebuildVocabResponse: a malformed row doesn't throw, whole batch keeps going", () => {
   const sourceById = new Map([["0", { simplified: "气候", traditional: "氣候", pinyin: "qìhòu", level: { system: "HSK", value: 3 } }]]);
-  const { cards } = validateAndRebuildVocabResponse([null, "not-an-object", { id: "0", german: "Klima" }], sourceById);
+  const { cards } = validateAndRebuildVocabResponse([null, "not-an-object", { id: "0", translation: "Klima" }], sourceById);
   assert.equal(cards.length, 1);
 });
 
@@ -124,15 +124,15 @@ test("validateAndRebuildVocabResponse: non-array input returns empty result", ()
   assert.deepEqual(droppedIds, []);
 });
 
-test("buildTsv: no header row — only data rows, so Anki's import never gets a literal 'Hanzi/Pinyin/Deutsch' card", () => {
-  const tsv = buildTsv([{ hanzi: "气候", pinyin: "qìhòu", german: "Klima" }]);
+test("buildTsv: no header row — only data rows, so Anki's import never gets a literal 'Hanzi/Pinyin/<language>' card", () => {
+  const tsv = buildTsv([{ hanzi: "气候", pinyin: "qìhòu", translation: "Klima" }]);
   const lines = tsv.trim().split("\n");
   assert.equal(lines.length, 1);
   assert.equal(lines[0], "气候\tqìhòu\tKlima");
 });
 
 test("buildTsv: sanitizes literal tabs/newlines inside fields", () => {
-  const tsv = buildTsv([{ hanzi: "气候", pinyin: "qìhòu", german: "Klima\tmit\nUmbruch" }]);
+  const tsv = buildTsv([{ hanzi: "气候", pinyin: "qìhòu", translation: "Klima\tmit\nUmbruch" }]);
   const lines = tsv.trim().split("\n");
   assert.equal(lines.length, 1);
   assert.equal(lines[0], "气候\tqìhòu\tKlima mit Umbruch");

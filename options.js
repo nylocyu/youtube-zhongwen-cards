@@ -29,15 +29,18 @@ const storage = createStorageAdapter();
 function fillForm(settings) {
   document.getElementById("supadata-key").value = settings.supadataApiKey;
   document.getElementById("anthropic-key").value = settings.anthropicApiKey;
+  document.getElementById("ui-language").value = settings.uiLanguage;
   document.getElementById("default-level").value = String(settings.defaultLevel);
   document.getElementById("default-script").value = settings.defaultScript;
   document.getElementById("default-count").value = String(settings.defaultCount);
+  ZWC_I18N.applyI18n(document, settings.uiLanguage);
 }
 
 function readForm() {
   return {
     supadataApiKey: document.getElementById("supadata-key").value,
     anthropicApiKey: document.getElementById("anthropic-key").value,
+    uiLanguage: document.getElementById("ui-language").value,
     defaultLevel: document.getElementById("default-level").value,
     defaultScript: document.getElementById("default-script").value,
     defaultCount: document.getElementById("default-count").value,
@@ -55,7 +58,7 @@ async function saveSettings() {
   fillForm(normalized);
 
   const status = document.getElementById("save-status");
-  status.textContent = "Gespeichert.";
+  status.textContent = ZWC_I18N.t(normalized.uiLanguage, "savedStatus");
   setTimeout(() => {
     status.textContent = "";
   }, 2000);

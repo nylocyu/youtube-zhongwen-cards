@@ -8,24 +8,24 @@
   <body>
     <header class="app-header">
       <h1>词 Zhongwen Cards</h1>
-      <button id="open-options" type="button" class="icon-button" title="Einstellungen">⚙️</button>
+      <button id="open-options" type="button" class="icon-button" title="Einstellungen" data-i18n-title="settingsTitle">⚙️</button>
     </header>
 
     <main>
       <section id="view-welcome" class="view">
-        <p>Öffne ein YouTube-Video mit Untertiteln, um Chinesisch-Vokabelkarten zu erstellen.</p>
+        <p data-i18n="welcomeText">Öffne ein YouTube-Video mit Untertiteln, um Chinesisch-Vokabelkarten zu erstellen.</p>
       </section>
 
       <section id="view-missing-keys" class="view">
-        <p>Bitte hinterlege zuerst deinen Supadata- und Anthropic-API-Key in den Einstellungen.</p>
-        <button id="missing-keys-open-options" type="button" class="primary-button">Einstellungen öffnen</button>
+        <p data-i18n="missingKeysText">Bitte hinterlege zuerst deinen Supadata- und Anthropic-API-Key in den Einstellungen.</p>
+        <button id="missing-keys-open-options" type="button" class="primary-button" data-i18n="openOptionsButton">Einstellungen öffnen</button>
       </section>
 
       <section id="view-setup" class="view">
         <p class="video-title" id="setup-video-title"></p>
 
         <div class="field">
-          <label for="level-select">HSK-Level</label>
+          <label for="level-select" data-i18n="hskLevelLabel">HSK-Level</label>
           <select id="level-select">
             <option value="1">HSK 1</option>
             <option value="2">HSK 2</option>
@@ -38,24 +38,24 @@
         </div>
 
         <div class="field">
-          <label>Schrift</label>
+          <label data-i18n="scriptLabel">Schrift</label>
           <div class="segmented" id="script-toggle" role="group">
-            <button type="button" data-value="simplified" class="segmented-option">简体 Vereinfacht</button>
-            <button type="button" data-value="traditional" class="segmented-option">繁體 Traditionell</button>
+            <button type="button" data-value="simplified" class="segmented-option" data-i18n="scriptSimplified">简体 Vereinfacht</button>
+            <button type="button" data-value="traditional" class="segmented-option" data-i18n="scriptTraditional">繁體 Traditionell</button>
           </div>
         </div>
 
         <div class="field">
-          <label for="count-range">Anzahl Vokabeln: <span id="count-value">20</span></label>
+          <label for="count-range"><span data-i18n="countLabel">Anzahl Vokabeln:</span> <span id="count-value">20</span></label>
           <input type="range" id="count-range" min="10" max="50" step="1" value="20" />
         </div>
 
-        <button id="generate-button" type="button" class="primary-button">Vokabeln generieren</button>
+        <button id="generate-button" type="button" class="primary-button" data-i18n="generateButton">Vokabeln generieren</button>
       </section>
 
       <section id="view-loading" class="view">
         <div class="spinner" aria-hidden="true"></div>
-        <p id="loading-phase">Wird geladen…</p>
+        <p id="loading-phase" data-i18n="loadingGeneric">Wird geladen…</p>
       </section>
 
       <section id="view-results" class="view">
@@ -66,25 +66,26 @@
               <tr>
                 <th>Hanzi</th>
                 <th>Pinyin</th>
-                <th>Deutsch</th>
+                <th id="results-translation-header" data-i18n="tableHeaderTranslation">Deutsch</th>
               </tr>
             </thead>
             <tbody id="results-tbody"></tbody>
           </table>
         </div>
         <div class="results-actions">
-          <button id="export-button" type="button" class="primary-button">Als TSV exportieren</button>
-          <button id="regenerate-button" type="button" class="secondary-button">Neu generieren</button>
+          <button id="export-button" type="button" class="primary-button" data-i18n="exportButton">Als TSV exportieren</button>
+          <button id="regenerate-button" type="button" class="secondary-button" data-i18n="regenerateButton">Neu generieren</button>
         </div>
       </section>
 
       <section id="view-error" class="view">
         <p id="error-message"></p>
-        <button id="error-options-link" type="button" class="secondary-button" hidden>Einstellungen öffnen</button>
-        <button id="error-back-button" type="button" class="secondary-button">Zurück</button>
+        <button id="error-options-link" type="button" class="secondary-button" hidden data-i18n="openOptionsButton">Einstellungen öffnen</button>
+        <button id="error-back-button" type="button" class="secondary-button" data-i18n="backButton">Zurück</button>
       </section>
     </main>
 
+    <script src="i18n.js"></script>
     <script src="settings.js"></script>
     <script src="vocab-lib.js"></script>
     <script src="sidepanel.js"></script>

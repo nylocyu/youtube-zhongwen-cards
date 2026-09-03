@@ -3,7 +3,7 @@
   "name": "YouTube Zhongwen Cards",
   "version": "0.1.0",
   "minimum_chrome_version": "116",
-  "description": "Chinesisch-Vokabelkarten (HSK) aus YouTube-Videos, mit deutscher Übersetzung, als Anki-Export.",
+  "description": "Chinese vocabulary flashcards (HSK) from YouTube videos, with German or English translation, for Anki import.",
   "permissions": ["sidePanel", "storage", "tabs", "scripting", "downloads"],
   "host_permissions": [
     "https://*.youtube.com/*",
@@ -11,7 +11,7 @@
     "https://api.anthropic.com/*"
   ],
   "action": {
-    "default_title": "YouTube Zhongwen Cards öffnen",
+    "default_title": "Open YouTube Zhongwen Cards",
     "default_icon": {
       "16": "icons/icon16.png",
       "48": "icons/icon48.png",
@@ -31,7 +31,7 @@
   "content_scripts": [
     {
       "matches": ["https://*.youtube.com/*"],
-      "js": ["content.js"],
+      "js": ["i18n.js", "content.js"],
       "run_at": "document_idle"
     }
   ],

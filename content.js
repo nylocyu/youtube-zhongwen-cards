@@ -1,9 +1,18 @@
-// Content script: injects a "Vokabeln" button into YouTube's action row
-// (next to Like/Share) that opens the side panel. Re-injects on YouTube's
-// own SPA navigation, since YouTube only fires a real page load once.
+// Content script: injects a "Vokabeln"/"Vocab" button into YouTube's action
+// row (next to Like/Share) that opens the side panel. Re-injects on
+// YouTube's own SPA navigation, since YouTube only fires a real page load
+// once.
 
 const BUTTON_ID = "zwc-open-button";
 const ACTION_ROW_SELECTOR = "#top-level-buttons-computed";
+
+// The isolated-world content script can't read chrome.storage.local
+// directly (background.js locks it to TRUSTED_CONTEXTS), so the language is
+// fetched once via message at startup. Deliberate simplification: if the
+// user changes the language while this tab stays open, the button keeps
+// showing the language it started with until the page is reloaded — there's
+// no live-update channel available to a non-trusted context.
+let currentLang = "de";
 
 function isVisible(el) {
   const rect = el.getBoundingClientRect();
@@ -23,8 +32,8 @@ function createButton() {
   const button = document.createElement("button");
   button.id = BUTTON_ID;
   button.type = "button";
-  button.textContent = "词 Vokabeln";
-  button.title = "Chinesisch-Vokabelkarten aus diesem Video erstellen";
+  button.textContent = ZWC_I18N.t(currentLang, "contentButtonLabel");
+  button.title = ZWC_I18N.t(currentLang, "contentButtonTitle");
   button.style.cssText =
     "margin-left:8px;padding:0 16px;height:36px;border-radius:18px;border:none;" +
     "background:var(--yt-spec-badge-chip-background,#f2f2f2);color:var(--yt-spec-text-primary,#0f0f0f);" +
@@ -67,17 +76,30 @@ function init() {
   if (isWatchPage()) injectButton();
 }
 
-const observer = new MutationObserver(() => scheduleReconcile());
-observer.observe(document.body, { childList: true, subtree: true });
+async function loadLanguage() {
+  try {
+    const res = await chrome.runtime.sendMessage({ action: "getSettings" });
+    if (res && res.settings && res.settings.uiLanguage === "en") {
+      currentLang = "en";
+    }
+  } catch (e) {
+    // Background worker unreachable — keep the German default.
+  }
+}
 
-window.addEventListener("resize", () => scheduleReconcile(120));
+loadLanguage().then(() => {
+  const observer = new MutationObserver(() => scheduleReconcile());
+  observer.observe(document.body, { childList: true, subtree: true });
 
-// YouTube is a single-page app; it fires this custom event after an
-// in-page navigation to a different video, not a real page (re)load.
-document.addEventListener("yt-navigate-finish", () => {
-  const existing = document.getElementById(BUTTON_ID);
-  if (existing) existing.remove();
-  if (isWatchPage()) scheduleReconcile(500);
+  window.addEventListener("resize", () => scheduleReconcile(120));
+
+  // YouTube is a single-page app; it fires this custom event after an
+  // in-page navigation to a different video, not a real page (re)load.
+  document.addEventListener("yt-navigate-finish", () => {
+    const existing = document.getElementById(BUTTON_ID);
+    if (existing) existing.remove();
+    if (isWatchPage()) scheduleReconcile(500);
+  });
+
+  init();
 });
-
-init();

@@ -9,6 +9,7 @@ const DEFAULTS = Object.freeze({
   defaultLevel: 3, // HSK level 1-7 (7 = merged advanced 7-9 band)
   defaultScript: "simplified", // "simplified" | "traditional"
   defaultCount: 20, // 10-50
+  uiLanguage: "de", // "de" | "en" — also the language cards get translated into
 });
 
 const MIN_LEVEL = 1;
@@ -32,6 +33,7 @@ function normalize(input) {
     defaultLevel: clampInt(src.defaultLevel, MIN_LEVEL, MAX_LEVEL, DEFAULTS.defaultLevel),
     defaultScript: src.defaultScript === "traditional" ? "traditional" : "simplified",
     defaultCount: clampInt(src.defaultCount, MIN_COUNT, MAX_COUNT, DEFAULTS.defaultCount),
+    uiLanguage: src.uiLanguage === "en" ? "en" : "de",
   };
 }
 

@@ -26,6 +26,7 @@ public_allowlist=(
   "manifest.json"
   "background.js"
   "content.js"
+  "i18n.js"
   "settings.js"
   "vocab-lib.js"
   "sidepanel.html"

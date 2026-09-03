@@ -9,6 +9,7 @@ test("normalize: fills in defaults for empty input", () => {
   assert.equal(result.defaultLevel, 3);
   assert.equal(result.defaultScript, "simplified");
   assert.equal(result.defaultCount, 20);
+  assert.equal(result.uiLanguage, "de");
 });
 
 test("normalize: clamps defaultCount to [10, 50]", () => {
@@ -25,6 +26,11 @@ test("normalize: clamps defaultLevel to [1, 7]", () => {
 test("normalize: only accepts 'traditional' as non-default script", () => {
   assert.equal(ZWC_SETTINGS.normalize({ defaultScript: "traditional" }).defaultScript, "traditional");
   assert.equal(ZWC_SETTINGS.normalize({ defaultScript: "bogus" }).defaultScript, "simplified");
+});
+
+test("normalize: only accepts 'en' as non-default uiLanguage", () => {
+  assert.equal(ZWC_SETTINGS.normalize({ uiLanguage: "en" }).uiLanguage, "en");
+  assert.equal(ZWC_SETTINGS.normalize({ uiLanguage: "bogus" }).uiLanguage, "de");
 });
 
 test("normalize: trims string keys, ignores unknown fields", () => {

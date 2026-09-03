@@ -428,6 +428,10 @@ function levelLabel(level) {
   return level === 7 ? "HSK 7–9" : `HSK ${level}`;
 }
 
+function targetLanguageLabel(uiLanguage) {
+  return uiLanguage === "en" ? "Englisch" : "Deutsch";
+}
+
 function resolveHanzi(card, script) {
   return script === "traditional" ? card.traditional : card.simplified;
 }
@@ -450,7 +454,7 @@ function extractContextSentence(transcript, word) {
 const CASE_B_CANDIDATE_LIMIT = 400;
 const CASE_B_TRANSCRIPT_EXCERPT_CHARS = 3500;
 
-async function runCaseA(transcriptText, videoTitle, levelWords, safeScript, safeCount) {
+async function runCaseA(transcriptText, videoTitle, levelWords, safeScript, safeCount, targetLanguage) {
   const matches = ZWC_VOCAB.matchCandidatesInTranscript(transcriptText, levelWords, safeCount);
   if (matches.length === 0) return { cards: [] };
 
@@ -463,10 +467,11 @@ async function runCaseA(transcriptText, videoTitle, levelWords, safeScript, safe
   }));
 
   const [systemPrompt, userPrompt] = await Promise.all([
-    loadPromptSection("vocab-translate-batch.md", "System prompt", {}),
+    loadPromptSection("vocab-translate-batch.md", "System prompt", { targetLanguage }),
     loadPromptSection("vocab-translate-batch.md", "User prompt", {
       videoTitle: videoTitle || "",
       wordList: JSON.stringify(wordList),
+      targetLanguage,
     }),
   ]);
 
@@ -483,7 +488,16 @@ async function runCaseA(transcriptText, videoTitle, levelWords, safeScript, safe
   return ZWC_VOCAB.validateAndRebuildVocabResponse(parsed, sourceById);
 }
 
-async function runCaseB(transcriptText, videoTitle, videoDescription, levelWords, safeScript, safeLevel, safeCount) {
+async function runCaseB(
+  transcriptText,
+  videoTitle,
+  videoDescription,
+  levelWords,
+  safeScript,
+  safeLevel,
+  safeCount,
+  targetLanguage
+) {
   const truncated = [...levelWords]
     .sort((a, b) => (a.freq ?? Infinity) - (b.freq ?? Infinity))
     .slice(0, CASE_B_CANDIDATE_LIMIT);
@@ -500,12 +514,13 @@ async function runCaseB(transcriptText, videoTitle, videoDescription, levelWords
   )}\nTranskript-Auszug: ${(transcriptText || "").slice(0, CASE_B_TRANSCRIPT_EXCERPT_CHARS)}`;
 
   const [systemPrompt, userPrompt] = await Promise.all([
-    loadPromptSection("vocab-topic-select.md", "System prompt", {}),
+    loadPromptSection("vocab-topic-select.md", "System prompt", { targetLanguage }),
     loadPromptSection("vocab-topic-select.md", "User prompt", {
       videoSummary,
       level: levelLabel(safeLevel),
       count: String(safeCount),
       candidateWords: JSON.stringify(candidateWords),
+      targetLanguage,
     }),
   ]);
 
@@ -536,7 +551,8 @@ async function handleGenerateVocabulary(payload) {
   const safeCount = Math.min(ZWC_SETTINGS.MAX_COUNT, Math.max(ZWC_SETTINGS.MIN_COUNT, Number(count) || settings.defaultCount));
   const safeScript = script === "traditional" ? "traditional" : "simplified";
 
-  const cacheKey = `vocab_${videoId}_HSK${safeLevel}_${safeScript}_${safeCount}`;
+  const targetLanguage = targetLanguageLabel(settings.uiLanguage);
+  const cacheKey = `vocab_${videoId}_HSK${safeLevel}_${safeScript}_${safeCount}_${settings.uiLanguage}`;
   const cached = await getCached(cacheKey);
   if (cached) {
     return { success: true, cards: cached.cards, caseUsed: cached.caseUsed, fromCache: true };
@@ -550,10 +566,19 @@ async function handleGenerateVocabulary(payload) {
   try {
     if (isChinese) {
       caseUsed = "A";
-      rebuilt = await runCaseA(transcriptText, videoTitle, levelWords, safeScript, safeCount);
+      rebuilt = await runCaseA(transcriptText, videoTitle, levelWords, safeScript, safeCount, targetLanguage);
     } else {
       caseUsed = "B";
-      rebuilt = await runCaseB(transcriptText, videoTitle, videoDescription, levelWords, safeScript, safeLevel, safeCount);
+      rebuilt = await runCaseB(
+        transcriptText,
+        videoTitle,
+        videoDescription,
+        levelWords,
+        safeScript,
+        safeLevel,
+        safeCount,
+        targetLanguage
+      );
     }
   } catch (err) {
     return { success: false, error: err.code || "UNKNOWN", message: err.message };
@@ -573,7 +598,7 @@ async function handleGenerateVocabulary(payload) {
   const finalCards = rebuilt.cards.map((c) => ({
     hanzi: resolveHanzi(c, safeScript),
     pinyin: c.pinyin,
-    german: c.german,
+    translation: c.translation,
     level: c.level.value,
   }));
 
@@ -622,6 +647,7 @@ if (typeof globalThis !== "undefined") {
     substituteVariables,
     canonicalYouTubeUrl,
     levelLabel,
+    targetLanguageLabel,
     resolveHanzi,
     extractContextSentence,
     supadataErrorForStatus,

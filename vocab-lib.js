@@ -77,15 +77,15 @@ function parseLooseJson(raw) {
   }
 }
 
-const MAX_GERMAN_LENGTH = 200;
+const MAX_TRANSLATION_LENGTH = 200;
 
 // Never trust the LLM's JSON shape for facts we already have ground truth
 // for. `llmItems` is the parsed (untrusted) model output, expected shape
-// [{id, german}, ...]. `sourceById` maps id -> the authoritative bundled
+// [{id, translation}, ...]. `sourceById` maps id -> the authoritative bundled
 // word object. Every returned id is cross-checked against sourceById;
 // anything not found (a hallucinated id/word) is dropped. simplified /
 // traditional / pinyin / zhuyin / level are always taken from sourceById,
-// never from the model — only `german` is trusted model output.
+// never from the model — only `translation` is trusted model output.
 function validateAndRebuildVocabResponse(llmItems, sourceById) {
   const cards = [];
   const droppedIds = [];
@@ -98,10 +98,10 @@ function validateAndRebuildVocabResponse(llmItems, sourceById) {
   for (const item of llmItems) {
     if (!item || typeof item !== "object") continue;
     const id = String(item.id ?? "");
-    const german = typeof item.german === "string" ? item.german.trim() : "";
+    const translation = typeof item.translation === "string" ? item.translation.trim() : "";
 
     const source = sourceById instanceof Map ? sourceById.get(id) : sourceById?.[id];
-    if (!source || !german || seen.has(id)) {
+    if (!source || !translation || seen.has(id)) {
       if (id) droppedIds.push(id);
       continue;
     }
@@ -113,7 +113,7 @@ function validateAndRebuildVocabResponse(llmItems, sourceById) {
       pinyin: source.pinyin,
       zhuyin: source.zhuyin,
       level: source.level,
-      german: german.slice(0, MAX_GERMAN_LENGTH),
+      translation: translation.slice(0, MAX_TRANSLATION_LENGTH),
     });
   }
 
@@ -124,17 +124,17 @@ function sanitizeTsvField(value) {
   return String(value ?? "").replace(/[\t\r\n]+/g, " ").trim();
 }
 
-// cards: [{hanzi, pinyin, german}] — script (simplified/traditional) is
+// cards: [{hanzi, pinyin, translation}] — script (simplified/traditional) is
 // already resolved into `hanzi` by the caller before this is called.
-// No header row: Anki's file import would otherwise add "Hanzi/Pinyin/Deutsch"
-// as a literal card.
+// No header row: Anki's file import would otherwise add a literal
+// "Hanzi/Pinyin/<language>" card.
 function buildTsv(cards) {
   const rows = [];
   for (const card of cards) {
     rows.push([
       sanitizeTsvField(card.hanzi),
       sanitizeTsvField(card.pinyin),
-      sanitizeTsvField(card.german),
+      sanitizeTsvField(card.translation),
     ]);
   }
   return rows.map((row) => row.join("\t")).join("\n") + "\n";
