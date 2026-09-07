@@ -18,9 +18,10 @@ YouTube-Transkript. Gib für jedes Wort eine kurze, wörterbuchartige Übersetzu
 zur Bedeutung im gegebenen Kontextsatz.
 
 Antworte NUR mit einem JSON-Array, keinem anderen Text. Jedes Element hat exakt die Form
-{"id": "<id>", "translation": "<Übersetzung>"}. Gib für jede Eingabe-ID genau ein Element
-zurück, in beliebiger Reihenfolge. Erfinde keine IDs. Verändere niemals das chinesische
-Wort selbst — du übersetzt nur.
+{"id": "<id>", "translation": "<Übersetzung>"{sentenceFields}}. Gib für jede Eingabe-ID genau
+ein Element zurück, in beliebiger Reihenfolge. Erfinde keine IDs. Verändere niemals das
+chinesische Wort selbst — du übersetzt nur.
+{sentenceRule}
 ```
 
 ## User prompt
@@ -31,7 +32,7 @@ Video-Titel: {videoTitle}
 Wörter:
 {wordList}
 
-Gib das JSON-Array mit den Übersetzungen auf {targetLanguage} zurück.
+Gib das JSON-Array mit den Übersetzungen auf {targetLanguage} zurück.{sentenceReminder}
 ```
 
 ## Variables
@@ -42,3 +43,9 @@ Gib das JSON-Array mit den Übersetzungen auf {targetLanguage} zurück.
   from the transcript containing it.
 - `targetLanguage` — `"Deutsch"` or `"Englisch"`, from the user's `uiLanguage`
   setting.
+- `sentenceFields`, `sentenceRule`, `sentenceReminder` — all empty strings when
+  the user did not ask for example sentences. When they did, they add
+  `sentencePinyin` and `sentenceTranslation` to the required JSON shape. The
+  sentence *itself* is deliberately never requested back: `background.js`
+  already has it verbatim from the transcript and re-attaches it after
+  validation, so the model cannot alter, shorten or invent it.

@@ -48,6 +48,7 @@ function applyDefaultsToControls() {
   document.getElementById("level-select").value = String(currentSettings.defaultLevel);
   document.getElementById("count-range").value = String(currentSettings.defaultCount);
   document.getElementById("count-value").textContent = String(currentSettings.defaultCount);
+  document.getElementById("sentences-checkbox").checked = currentSettings.defaultSentences;
   scriptChoice = currentSettings.defaultScript;
   updateScriptToggle();
 }
@@ -82,6 +83,25 @@ function renderResults(vocabRes) {
     translationTd.textContent = card.translation;
     tr.append(hanziTd, pinyinTd, translationTd);
     tbody.appendChild(tr);
+
+    if (card.sentence) {
+      const sentenceTr = document.createElement("tr");
+      sentenceTr.className = "sentence-row";
+      const td = document.createElement("td");
+      td.colSpan = 3;
+      const hanziLine = document.createElement("div");
+      hanziLine.className = "sentence-hanzi";
+      hanziLine.textContent = card.sentence;
+      td.appendChild(hanziLine);
+      for (const line of [card.sentencePinyin, card.sentenceTranslation]) {
+        if (!line) continue;
+        const div = document.createElement("div");
+        div.textContent = line;
+        td.appendChild(div);
+      }
+      sentenceTr.appendChild(td);
+      tbody.appendChild(sentenceTr);
+    }
   }
   const caseLabelKey = vocabRes.caseUsed === "A" ? "caseLabelTranscript" : "caseLabelTopic";
   document.getElementById("results-summary").textContent = ZWC_I18N.t(lang, "resultsSummary", {
@@ -107,6 +127,7 @@ async function onGenerate() {
 
     const level = Number(document.getElementById("level-select").value);
     const count = Number(document.getElementById("count-range").value);
+    const sentences = document.getElementById("sentences-checkbox").checked;
 
     const vocabRes = await sendMessage("generateVocabulary", {
       videoId: currentVideo.videoId,
@@ -116,6 +137,7 @@ async function onGenerate() {
       level,
       script: scriptChoice,
       count,
+      sentences,
     });
 
     if (!vocabRes.success) {
@@ -126,7 +148,13 @@ async function onGenerate() {
     currentCards = vocabRes.cards;
     renderResults(vocabRes);
 
-    currentSettings = { ...currentSettings, defaultLevel: level, defaultScript: scriptChoice, defaultCount: count };
+    currentSettings = {
+      ...currentSettings,
+      defaultLevel: level,
+      defaultScript: scriptChoice,
+      defaultCount: count,
+      defaultSentences: sentences,
+    };
     await sendMessage("saveSettings", { settings: currentSettings });
   } catch (err) {
     showError({ message: err.message });

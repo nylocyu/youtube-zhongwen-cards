@@ -16,6 +16,9 @@ const STRINGS = {
     scriptSimplified: "简体 Vereinfacht",
     scriptTraditional: "繁體 Traditionell",
     countLabel: "Anzahl Vokabeln:",
+    sentencesLabel: "Beispielsätze hinzufügen",
+    sentencesHint:
+      "Bei chinesischen Videos stammen die Sätze wörtlich aus dem Video, sonst werden sie passend zum Thema generiert.",
     generateButton: "Vokabeln generieren",
     loadingGeneric: "Wird geladen…",
     tableHeaderTranslation: "Deutsch",
@@ -85,6 +88,9 @@ const STRINGS = {
     scriptSimplified: "简体 Simplified",
     scriptTraditional: "繁體 Traditional",
     countLabel: "Number of words:",
+    sentencesLabel: "Add example sentences",
+    sentencesHint:
+      "For Chinese videos the sentences are taken verbatim from the video; otherwise they are generated to match the topic.",
     generateButton: "Generate vocabulary",
     loadingGeneric: "Loading…",
     tableHeaderTranslation: "English",

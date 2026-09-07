@@ -26,7 +26,8 @@ der Bezug locker ist — gib niemals weniger Elemente zurück als angefordert, a
 Liste selbst ist kürzer.
 
 Antworte NUR mit einem JSON-Array, keinem anderen Text. Jedes Element hat exakt die Form
-{"id": "<id>", "translation": "<Übersetzung>"}.
+{"id": "<id>", "translation": "<Übersetzung>"{sentenceFields}}.
+{sentenceRule}
 ```
 
 ## User prompt
@@ -41,7 +42,7 @@ Anzahl gewünschter Wörter: {count}
 Kandidaten-Wörter (nur per ID auswählbar):
 {candidateWords}
 
-Gib das JSON-Array mit genau {count} ausgewählten Wörtern zurück.
+Gib das JSON-Array mit genau {count} ausgewählten Wörtern zurück.{sentenceReminder}
 ```
 
 ## Variables
@@ -55,3 +56,8 @@ Gib das JSON-Array mit genau {count} ausgewählten Wörtern zurück.
   budget.
 - `targetLanguage` — `"Deutsch"` or `"Englisch"`, from the user's `uiLanguage`
   setting.
+- `sentenceFields`, `sentenceRule`, `sentenceReminder` — all empty strings when
+  the user did not ask for example sentences. When they did, they additionally
+  require `sentence`, `sentencePinyin` and `sentenceTranslation`. Unlike Case A,
+  the sentence here *is* model-invented — a non-Chinese video contains no
+  Chinese sentence to lift — so it is trusted model output, length-capped only.

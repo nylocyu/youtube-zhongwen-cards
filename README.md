@@ -19,16 +19,24 @@ gesendet — Details dazu in [PRIVACY.md](PRIVACY.md).
    Extension-Icon).
 2. Du wählst dein **HSK-Level** (1–6, oder 7 für die zusammengefasste
    fortgeschrittene Stufe 7–9), die **Schrift** (vereinfacht/traditionell)
-   und die **Anzahl** Vokabeln (10–50).
+   und die **Anzahl** Vokabeln (10–50). Optional: **Beispielsätze
+   hinzufügen** — dann bekommt jede Karte zusätzlich einen Beispielsatz mit
+   Pinyin und Übersetzung.
 3. Ist das Video auf Chinesisch, werden die Vokabeln direkt per
    String-Abgleich aus dem Transkript extrahiert (kein KI-Aufruf nötig) —
    nur die deutsche Übersetzung kommt von Claude.
 4. Ist das Video nicht auf Chinesisch, wählt Claude passende Vokabeln des
    gewählten Levels zum Thema des Videos aus (immer nur aus der offiziellen
    HSK-Wortliste, nie erfunden) und übersetzt sie.
-5. Export als `.tsv`-Datei für den Import in Anki. Spalten in dieser
+5. Bei aktivierten Beispielsätzen stammt der Satz bei chinesischen Videos
+   **wörtlich aus dem Transkript** (Claude liefert nur Pinyin und
+   Übersetzung dazu und kann den Satz selbst nicht verändern); bei nicht
+   chinesischen Videos gibt es keinen chinesischen Satz im Video, dort
+   generiert Claude einen themenpassenden Satz auf dem gewählten Level.
+6. Export als `.tsv`-Datei für den Import in Anki. Spalten in dieser
    Reihenfolge, ohne Kopfzeile: Hanzi, Pinyin, Deutsch — beim Import in Anki
-   entsprechend als Felder zuordnen.
+   entsprechend als Felder zuordnen. Mit Beispielsätzen kommen drei weitere
+   Spalten dazu: Satz, Satz-Pinyin, Satz-Übersetzung.
 
 ## Installation
 

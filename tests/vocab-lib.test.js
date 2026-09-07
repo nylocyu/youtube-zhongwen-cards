@@ -137,3 +137,62 @@ test("buildTsv: sanitizes literal tabs/newlines inside fields", () => {
   assert.equal(lines.length, 1);
   assert.equal(lines[0], "气候\tqìhòu\tKlima mit Umbruch");
 });
+
+test("validateAndRebuildVocabResponse: the transcript's sentence wins over the model's echo of it", () => {
+  const sourceById = new Map([
+    [
+      "0",
+      {
+        simplified: "气候",
+        traditional: "氣候",
+        pinyin: "qìhòu",
+        level: { system: "HSK", value: 3 },
+        contextSentence: "气候变化很重要。",
+      },
+    ],
+  ]);
+  const llmItems = [
+    {
+      id: "0",
+      translation: "Klima",
+      sentence: "MODELL HAT DEN SATZ UMGESCHRIEBEN",
+      sentencePinyin: "qìhòu biànhuà hěn zhòngyào.",
+      sentenceTranslation: "Der Klimawandel ist sehr wichtig.",
+    },
+  ];
+  const { cards } = validateAndRebuildVocabResponse(llmItems, sourceById);
+  assert.equal(cards[0].sentence, "气候变化很重要。");
+  assert.equal(cards[0].sentencePinyin, "qìhòu biànhuà hěn zhòngyào.");
+  assert.equal(cards[0].sentenceTranslation, "Der Klimawandel ist sehr wichtig.");
+});
+
+test("validateAndRebuildVocabResponse: without a source sentence (Case B) the model's own sentence is used", () => {
+  const sourceById = new Map([["0", { simplified: "气候", traditional: "氣候", pinyin: "qìhòu", level: { system: "HSK", value: 3 } }]]);
+  const llmItems = [{ id: "0", translation: "Klima", sentence: "今天的气候很好。", sentencePinyin: "jīntiān de qìhòu hěn hǎo." }];
+  const { cards } = validateAndRebuildVocabResponse(llmItems, sourceById);
+  assert.equal(cards[0].sentence, "今天的气候很好。");
+  assert.equal(cards[0].sentenceTranslation, "");
+});
+
+test("buildTsv: stays at three columns when no card has a sentence", () => {
+  const tsv = buildTsv([
+    { hanzi: "气候", pinyin: "qìhòu", translation: "Klima", sentence: "", sentencePinyin: "", sentenceTranslation: "" },
+  ]);
+  assert.equal(tsv.trim().split("\t").length, 3);
+});
+
+test("buildTsv: six columns once sentences are present", () => {
+  const tsv = buildTsv([
+    {
+      hanzi: "气候",
+      pinyin: "qìhòu",
+      translation: "Klima",
+      sentence: "气候变化很重要。",
+      sentencePinyin: "qìhòu biànhuà hěn zhòngyào.",
+      sentenceTranslation: "Der Klimawandel ist sehr wichtig.",
+    },
+  ]);
+  const cols = tsv.trim().split("\t");
+  assert.equal(cols.length, 6);
+  assert.equal(cols[3], "气候变化很重要。");
+});

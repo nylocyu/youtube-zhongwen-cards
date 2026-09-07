@@ -33,6 +33,7 @@ function fillForm(settings) {
   document.getElementById("default-level").value = String(settings.defaultLevel);
   document.getElementById("default-script").value = settings.defaultScript;
   document.getElementById("default-count").value = String(settings.defaultCount);
+  document.getElementById("default-sentences").checked = settings.defaultSentences;
   ZWC_I18N.applyI18n(document, settings.uiLanguage);
 }
 
@@ -44,6 +45,7 @@ function readForm() {
     defaultLevel: document.getElementById("default-level").value,
     defaultScript: document.getElementById("default-script").value,
     defaultCount: document.getElementById("default-count").value,
+    defaultSentences: document.getElementById("default-sentences").checked,
   };
 }
 

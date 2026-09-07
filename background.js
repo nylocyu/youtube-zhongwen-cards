@@ -345,7 +345,7 @@ async function requestAiCompletion({ apiKey, baseUrl, model, system, userContent
       },
       body: JSON.stringify({
         model,
-        max_tokens: 4096,
+        max_tokens: 8192,
         system,
         messages: [{ role: "user", content: userContent }],
         output_config: { effort: "low" },
@@ -451,27 +451,74 @@ function extractContextSentence(transcript, word) {
   return transcript.slice(start, end).trim();
 }
 
+// Prompt fragments for the optional example-sentence mode. Empty strings when
+// off, so the prompt files stay a single source of truth for both modes.
+const SENTENCE_FRAGMENTS = {
+  A: {
+    sentenceFields: ', "sentencePinyin": "<Pinyin des Kontextsatzes>", "sentenceTranslation": "<Übersetzung des Kontextsatzes>"',
+    sentenceRule: `
+Zusätzlich lieferst du zu jedem Wort zwei Angaben zum mitgelieferten contextSentence:
+"sentencePinyin" = das vollständige Pinyin dieses Satzes mit Tonzeichen (z. B. "Wǒ xǐhuān hē chá."),
+"sentenceTranslation" = die Übersetzung dieses Satzes auf {targetLanguage}.
+Gib den Satz selbst NICHT zurück und ändere ihn nicht — er ist bereits bekannt.`,
+    sentenceReminder: " Vergiss sentencePinyin und sentenceTranslation nicht.",
+  },
+  B: {
+    sentenceFields: ', "sentence": "<Beispielsatz>", "sentencePinyin": "<Pinyin des Satzes>", "sentenceTranslation": "<Übersetzung des Satzes>"',
+    sentenceRule: `
+Zusätzlich erfindest du zu jedem gewählten Wort einen kurzen, natürlichen Beispielsatz:
+"sentence" = ein Satz auf Chinesisch (max. 20 Zeichen), der das Wort enthält, zum Thema des
+Videos passt und den Wortschatz des Ziel-Levels nicht überschreitet,
+"sentencePinyin" = das vollständige Pinyin dieses Satzes mit Tonzeichen,
+"sentenceTranslation" = die Übersetzung dieses Satzes auf {targetLanguage}.`,
+    sentenceReminder: " Vergiss sentence, sentencePinyin und sentenceTranslation nicht.",
+  },
+};
+
+const NO_SENTENCE_FRAGMENTS = { sentenceFields: "", sentenceRule: "", sentenceReminder: "" };
+
+function sentenceFragments(caseKey, withSentences, targetLanguage) {
+  if (!withSentences) return NO_SENTENCE_FRAGMENTS;
+  const f = SENTENCE_FRAGMENTS[caseKey];
+  return { ...f, sentenceRule: substituteVariables(f.sentenceRule, { targetLanguage }) };
+}
+
 const CASE_B_CANDIDATE_LIMIT = 400;
 const CASE_B_TRANSCRIPT_EXCERPT_CHARS = 3500;
 
-async function runCaseA(transcriptText, videoTitle, levelWords, safeScript, safeCount, targetLanguage) {
+async function runCaseA(
+  transcriptText,
+  videoTitle,
+  levelWords,
+  safeScript,
+  safeCount,
+  targetLanguage,
+  withSentences
+) {
   const matches = ZWC_VOCAB.matchCandidatesInTranscript(transcriptText, levelWords, safeCount);
   if (matches.length === 0) return { cards: [] };
 
-  const sourceById = new Map(matches.map((c, i) => [String(i), c]));
-  const wordList = matches.map((c, i) => ({
-    id: String(i),
-    word: resolveHanzi(c, safeScript),
-    contextSentence:
-      extractContextSentence(transcriptText, c.simplified) || extractContextSentence(transcriptText, c.traditional),
-  }));
+  const wordList = [];
+  const sourceById = new Map();
+  matches.forEach((c, i) => {
+    const id = String(i);
+    const contextSentence =
+      extractContextSentence(transcriptText, c.simplified) || extractContextSentence(transcriptText, c.traditional);
+    wordList.push({ id, word: resolveHanzi(c, safeScript), contextSentence });
+    // The sentence only becomes part of the card when the user asked for it —
+    // validateAndRebuildVocabResponse picks it up from here, so the card's
+    // sentence is always the transcript's, never the model's echo of it.
+    sourceById.set(id, withSentences ? { ...c, contextSentence } : c);
+  });
 
+  const fragments = sentenceFragments("A", withSentences, targetLanguage);
   const [systemPrompt, userPrompt] = await Promise.all([
-    loadPromptSection("vocab-translate-batch.md", "System prompt", { targetLanguage }),
+    loadPromptSection("vocab-translate-batch.md", "System prompt", { targetLanguage, ...fragments }),
     loadPromptSection("vocab-translate-batch.md", "User prompt", {
       videoTitle: videoTitle || "",
       wordList: JSON.stringify(wordList),
       targetLanguage,
+      ...fragments,
     }),
   ]);
 
@@ -496,7 +543,8 @@ async function runCaseB(
   safeScript,
   safeLevel,
   safeCount,
-  targetLanguage
+  targetLanguage,
+  withSentences
 ) {
   const truncated = [...levelWords]
     .sort((a, b) => (a.freq ?? Infinity) - (b.freq ?? Infinity))
@@ -513,14 +561,16 @@ async function runCaseB(
     500
   )}\nTranskript-Auszug: ${(transcriptText || "").slice(0, CASE_B_TRANSCRIPT_EXCERPT_CHARS)}`;
 
+  const fragments = sentenceFragments("B", withSentences, targetLanguage);
   const [systemPrompt, userPrompt] = await Promise.all([
-    loadPromptSection("vocab-topic-select.md", "System prompt", { targetLanguage }),
+    loadPromptSection("vocab-topic-select.md", "System prompt", { targetLanguage, ...fragments }),
     loadPromptSection("vocab-topic-select.md", "User prompt", {
       videoSummary,
       level: levelLabel(safeLevel),
       count: String(safeCount),
       candidateWords: JSON.stringify(candidateWords),
       targetLanguage,
+      ...fragments,
     }),
   ]);
 
@@ -538,7 +588,7 @@ async function runCaseB(
 }
 
 async function handleGenerateVocabulary(payload) {
-  const { videoId, transcriptText, videoTitle, videoDescription, level, script, count } = payload || {};
+  const { videoId, transcriptText, videoTitle, videoDescription, level, script, count, sentences } = payload || {};
   const settings = ZWC_SETTINGS.normalize(await getSettingsRaw());
   if (!settings.anthropicApiKey) {
     return { success: false, error: "MISSING_AI_KEY", message: "Kein Anthropic API-Key hinterlegt." };
@@ -550,9 +600,12 @@ async function handleGenerateVocabulary(payload) {
   const safeLevel = Math.min(ZWC_SETTINGS.MAX_LEVEL, Math.max(ZWC_SETTINGS.MIN_LEVEL, Number(level) || settings.defaultLevel));
   const safeCount = Math.min(ZWC_SETTINGS.MAX_COUNT, Math.max(ZWC_SETTINGS.MIN_COUNT, Number(count) || settings.defaultCount));
   const safeScript = script === "traditional" ? "traditional" : "simplified";
+  const withSentences = sentences === true;
 
   const targetLanguage = targetLanguageLabel(settings.uiLanguage);
-  const cacheKey = `vocab_${videoId}_HSK${safeLevel}_${safeScript}_${safeCount}_${settings.uiLanguage}`;
+  const cacheKey = `vocab_${videoId}_HSK${safeLevel}_${safeScript}_${safeCount}_${settings.uiLanguage}_s${
+    withSentences ? 1 : 0
+  }`;
   const cached = await getCached(cacheKey);
   if (cached) {
     return { success: true, cards: cached.cards, caseUsed: cached.caseUsed, fromCache: true };
@@ -566,7 +619,15 @@ async function handleGenerateVocabulary(payload) {
   try {
     if (isChinese) {
       caseUsed = "A";
-      rebuilt = await runCaseA(transcriptText, videoTitle, levelWords, safeScript, safeCount, targetLanguage);
+      rebuilt = await runCaseA(
+        transcriptText,
+        videoTitle,
+        levelWords,
+        safeScript,
+        safeCount,
+        targetLanguage,
+        withSentences
+      );
     } else {
       caseUsed = "B";
       rebuilt = await runCaseB(
@@ -577,7 +638,8 @@ async function handleGenerateVocabulary(payload) {
         safeScript,
         safeLevel,
         safeCount,
-        targetLanguage
+        targetLanguage,
+        withSentences
       );
     }
   } catch (err) {
@@ -600,6 +662,9 @@ async function handleGenerateVocabulary(payload) {
     pinyin: c.pinyin,
     translation: c.translation,
     level: c.level.value,
+    sentence: c.sentence,
+    sentencePinyin: c.sentencePinyin,
+    sentenceTranslation: c.sentenceTranslation,
   }));
 
   await setCached(cacheKey, { cards: finalCards, caseUsed });
@@ -650,6 +715,7 @@ if (typeof globalThis !== "undefined") {
     targetLanguageLabel,
     resolveHanzi,
     extractContextSentence,
+    sentenceFragments,
     supadataErrorForStatus,
   };
 }

@@ -142,3 +142,42 @@ test("supadataErrorForStatus: maps known status codes to typed error codes", () 
   assert.equal(T.supadataErrorForStatus(429).code, "RATE_LIMITED");
   assert.equal(T.supadataErrorForStatus(500).code, "SUPADATA_ERROR");
 });
+
+// Guards the {sentenceFields}/{sentenceRule}/{sentenceReminder} wiring: an
+// unsubstituted placeholder would be sent to Claude verbatim.
+function renderPrompt(file, heading, vars) {
+  const fileText = fs.readFileSync(path.join(__dirname, "..", "prompts", file), "utf8");
+  return T.substituteVariables(T.extractPromptSection(fileText, heading), vars);
+}
+
+const PROMPT_CASES = [
+  ["vocab-translate-batch.md", "A", { videoTitle: "t", wordList: "[]" }],
+  ["vocab-topic-select.md", "B", { videoSummary: "s", level: "HSK 3", count: "20", candidateWords: "[]" }],
+];
+
+for (const [file, caseKey, extraVars] of PROMPT_CASES) {
+  for (const withSentences of [false, true]) {
+    test(`prompt ${file} (sentences=${withSentences}): every placeholder is substituted`, () => {
+      const vars = {
+        targetLanguage: "Deutsch",
+        ...extraVars,
+        ...T.sentenceFragments(caseKey, withSentences, "Deutsch"),
+      };
+      for (const heading of ["System prompt", "User prompt"]) {
+        const rendered = renderPrompt(file, heading, vars);
+        assert.equal(/\{[a-zA-Z]+\}/.test(rendered), false, `${heading} still has a placeholder: ${rendered}`);
+        assert.equal(rendered.includes("sentencePinyin"), withSentences);
+      }
+    });
+  }
+}
+
+test("sentenceFragments: off means empty strings, so the prompt collapses to the old wording", () => {
+  const off = T.sentenceFragments("A", false, "Deutsch");
+  assert.equal(off.sentenceFields, "");
+  assert.equal(off.sentenceRule, "");
+  assert.equal(off.sentenceReminder, "");
+  const on = T.sentenceFragments("A", true, "Englisch");
+  assert.equal(on.sentenceRule.includes("Englisch"), true);
+  assert.equal(on.sentenceRule.includes("{targetLanguage}"), false);
+});

@@ -78,6 +78,8 @@ function parseLooseJson(raw) {
 }
 
 const MAX_TRANSLATION_LENGTH = 200;
+const MAX_SENTENCE_LENGTH = 200;
+const MAX_SENTENCE_PINYIN_LENGTH = 300;
 
 // Never trust the LLM's JSON shape for facts we already have ground truth
 // for. `llmItems` is the parsed (untrusted) model output, expected shape
@@ -86,6 +88,17 @@ const MAX_TRANSLATION_LENGTH = 200;
 // anything not found (a hallucinated id/word) is dropped. simplified /
 // traditional / pinyin / zhuyin / level are always taken from sourceById,
 // never from the model — only `translation` is trusted model output.
+//
+// Example sentences (optional): `sentence` prefers `source.contextSentence`,
+// i.e. the sentence lifted verbatim from the video's transcript — the model
+// gets it as input but can never alter it. Only when the source has none
+// (Case B: the video isn't Chinese, so there is no sentence to lift) is the
+// model's own `item.sentence` used. `sentencePinyin` / `sentenceTranslation`
+// are necessarily model output; they are length-capped, nothing more.
+function trimmedString(value) {
+  return typeof value === "string" ? value.trim() : "";
+}
+
 function validateAndRebuildVocabResponse(llmItems, sourceById) {
   const cards = [];
   const droppedIds = [];
@@ -107,6 +120,8 @@ function validateAndRebuildVocabResponse(llmItems, sourceById) {
     }
     seen.add(id);
 
+    const sentence = trimmedString(source.contextSentence) || trimmedString(item.sentence);
+
     cards.push({
       simplified: source.simplified,
       traditional: source.traditional,
@@ -114,6 +129,9 @@ function validateAndRebuildVocabResponse(llmItems, sourceById) {
       zhuyin: source.zhuyin,
       level: source.level,
       translation: translation.slice(0, MAX_TRANSLATION_LENGTH),
+      sentence: sentence.slice(0, MAX_SENTENCE_LENGTH),
+      sentencePinyin: trimmedString(item.sentencePinyin).slice(0, MAX_SENTENCE_PINYIN_LENGTH),
+      sentenceTranslation: trimmedString(item.sentenceTranslation).slice(0, MAX_TRANSLATION_LENGTH),
     });
   }
 
@@ -124,18 +142,31 @@ function sanitizeTsvField(value) {
   return String(value ?? "").replace(/[\t\r\n]+/g, " ").trim();
 }
 
-// cards: [{hanzi, pinyin, translation}] — script (simplified/traditional) is
-// already resolved into `hanzi` by the caller before this is called.
+// cards: [{hanzi, pinyin, translation, sentence?, sentencePinyin?,
+// sentenceTranslation?}] — script (simplified/traditional) is already resolved
+// into `hanzi` by the caller before this is called.
 // No header row: Anki's file import would otherwise add a literal
 // "Hanzi/Pinyin/<language>" card.
+// Column count is derived from the data, not passed in: without sentences the
+// output stays byte-identical to the three-column format, so existing Anki
+// field mappings keep working.
 function buildTsv(cards) {
+  const withSentence = cards.some((card) => card.sentence);
   const rows = [];
   for (const card of cards) {
-    rows.push([
+    const row = [
       sanitizeTsvField(card.hanzi),
       sanitizeTsvField(card.pinyin),
       sanitizeTsvField(card.translation),
-    ]);
+    ];
+    if (withSentence) {
+      row.push(
+        sanitizeTsvField(card.sentence),
+        sanitizeTsvField(card.sentencePinyin),
+        sanitizeTsvField(card.sentenceTranslation)
+      );
+    }
+    rows.push(row);
   }
   return rows.map((row) => row.join("\t")).join("\n") + "\n";
 }
