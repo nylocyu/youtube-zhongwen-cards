@@ -10,7 +10,7 @@ const DEFAULTS = Object.freeze({
   defaultScript: "simplified", // "simplified" | "traditional"
   defaultCount: 20, // 10-50
   defaultSentences: false, // add an example sentence (+ its pinyin/translation) per card
-  uiLanguage: "de", // "de" | "en" — also the language cards get translated into
+  uiLanguage: "en", // "en" | "de" — also the language cards get translated into
 });
 
 const MIN_LEVEL = 1;
@@ -35,7 +35,7 @@ function normalize(input) {
     defaultScript: src.defaultScript === "traditional" ? "traditional" : "simplified",
     defaultCount: clampInt(src.defaultCount, MIN_COUNT, MAX_COUNT, DEFAULTS.defaultCount),
     defaultSentences: src.defaultSentences === true,
-    uiLanguage: src.uiLanguage === "en" ? "en" : "de",
+    uiLanguage: src.uiLanguage === "de" ? "de" : "en",
   };
 }
 

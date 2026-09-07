@@ -108,7 +108,7 @@ test("levelLabel: level 7 is labeled as the merged 7-9 band", () => {
 test("targetLanguageLabel: maps uiLanguage to the German prompt-facing label", () => {
   assert.equal(T.targetLanguageLabel("en"), "Englisch");
   assert.equal(T.targetLanguageLabel("de"), "Deutsch");
-  assert.equal(T.targetLanguageLabel("bogus"), "Deutsch");
+  assert.equal(T.targetLanguageLabel("bogus"), "Englisch");
 });
 
 test("resolveHanzi: picks simplified or traditional by script", () => {

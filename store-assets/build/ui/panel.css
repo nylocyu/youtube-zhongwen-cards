@@ -1,0 +1,229 @@
+:root {
+  --bg: #ffffff;
+  --text: #0f0f0f;
+  --text-muted: #606060;
+  --border: #e0e0e0;
+  --accent: #c0392b;
+  --accent-text: #ffffff;
+  --chip-bg: #f2f2f2;
+  --chip-bg-active: #0f0f0f;
+  --chip-text-active: #ffffff;
+  --error: #b3261e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans CJK SC", "Liberation Sans", -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.app-header h1 {
+  font-size: 16px;
+  margin: 0;
+  font-family: "Noto Serif CJK TC", serif;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px;
+  color: var(--text-muted);
+}
+
+main {
+  padding: 16px;
+}
+
+.field {
+  margin-bottom: 16px;
+}
+
+.field label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.field label.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.field-hint {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+select,
+input[type="range"] {
+  width: 100%;
+}
+
+select {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+}
+
+.segmented {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.segmented-option {
+  flex: 1;
+  padding: 8px 4px;
+  border: none;
+  background: var(--chip-bg);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+.segmented-option[aria-pressed="true"] {
+  background: var(--chip-bg-active);
+  color: var(--chip-text-active);
+}
+
+.primary-button,
+.secondary-button {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 18px;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.primary-button {
+  background: var(--accent);
+  color: var(--accent-text);
+  width: 100%;
+}
+
+.secondary-button {
+  background: var(--chip-bg);
+  color: var(--text);
+}
+
+.video-title {
+  font-weight: 500;
+  margin-top: 0;
+  line-height: 1.4;
+}
+
+.table-wrap {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+th {
+  background: var(--bg);
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr.sentence-row td {
+  padding-top: 0;
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+tr.sentence-row .sentence-hanzi {
+  color: var(--text);
+}
+
+.results-summary {
+  color: var(--text-muted);
+  margin-top: 0;
+  font-size: 13px;
+}
+
+.results-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.results-actions .primary-button {
+  flex: 2;
+}
+
+.results-actions .secondary-button {
+  flex: 1;
+}
+
+/* range input, drawn explicitly so the headless render matches Chrome on macOS */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border);
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+input[type="checkbox"] {
+  accent-color: var(--accent);
+  width: 14px;
+  height: 14px;
+  margin: 0;
+}

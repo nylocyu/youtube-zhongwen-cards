@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="panel.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>詞</h1>
+      <button class="icon-button" type="button">⚙</button>
+    </header>
+
+    <main>
+      <p class="results-summary">24 words (from the transcript)</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Hanzi</th>
+              <th>Pinyin</th>
+              <th>English</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>排隊</td><td>páiduì</td><td>to queue up</td></tr>
+            <tr class="sentence-row">
+              <td colspan="3">
+                <span class="sentence-hanzi">這家店前面總是有很多人排隊。</span><br />
+                Zhè jiā diàn qiánmiàn zǒngshì yǒu hěn duō rén páiduì.<br />
+                There are always a lot of people queuing in front of this shop.
+              </td>
+            </tr>
+            <tr><td>味道</td><td>wèidào</td><td>taste, flavour</td></tr>
+            <tr class="sentence-row">
+              <td colspan="3">
+                <span class="sentence-hanzi">這個味道跟我小時候吃的一樣。</span><br />
+                Zhège wèidào gēn wǒ xiǎo shíhòu chī de yīyàng.<br />
+                This tastes just like what I ate as a child.
+              </td>
+            </tr>
+            <tr><td>推薦</td><td>tuījiàn</td><td>to recommend</td></tr>
+            <tr class="sentence-row">
+              <td colspan="3">
+                <span class="sentence-hanzi">老闆推薦我們試試看這個。</span><br />
+                Lǎobǎn tuījiàn wǒmen shì shì kàn zhège.<br />
+                The owner recommended we give this a try.
+              </td>
+            </tr>
+            <tr><td>當地</td><td>dāngdì</td><td>local</td></tr>
+            <tr class="sentence-row">
+              <td colspan="3">
+                <span class="sentence-hanzi">當地人都知道這個地方。</span><br />
+                Dāngdì rén dōu zhīdào zhège dìfāng.<br />
+                Local people all know this place.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="results-actions">
+        <button type="button" class="primary-button">Export as TSV</button>
+        <button type="button" class="secondary-button">Regenerate</button>
+      </div>
+    </main>
+  </body>
+</html>

@@ -92,14 +92,14 @@ async function handleGetVideoMeta(payload) {
     tabId = tab && tab.id;
   }
   if (typeof tabId !== "number") {
-    return { success: false, error: "NO_TAB", message: "Kein aktiver Tab gefunden." };
+    return { success: false, error: "NO_TAB", message: "No active tab found." };
   }
 
   const tab = await chrome.tabs.get(tabId);
   const url = tab.url || "";
   const match = /[?&]v=([A-Za-z0-9_-]{6,20})/.exec(url);
   if (!match) {
-    return { success: false, error: "NOT_A_VIDEO", message: "Kein YouTube-Video in diesem Tab." };
+    return { success: false, error: "NOT_A_VIDEO", message: "No YouTube video in this tab." };
   }
   const videoIdFromUrl = match[1];
 
@@ -144,10 +144,10 @@ function canonicalYouTubeUrl(videoId) {
 }
 
 function supadataErrorForStatus(status) {
-  if (status === 206) return { code: "NO_TRANSCRIPT", message: "Kein Transkript für dieses Video verfügbar." };
-  if (status === 401 || status === 403) return { code: "INVALID_SUPADATA_KEY", message: "Ungültiger Supadata API-Key." };
-  if (status === 404) return { code: "VIDEO_NOT_FOUND", message: "Video nicht gefunden oder privat." };
-  if (status === 429) return { code: "RATE_LIMITED", message: "Supadata Rate-Limit erreicht." };
+  if (status === 206) return { code: "NO_TRANSCRIPT", message: "No transcript available for this video." };
+  if (status === 401 || status === 403) return { code: "INVALID_SUPADATA_KEY", message: "Invalid Supadata API key." };
+  if (status === 404) return { code: "VIDEO_NOT_FOUND", message: "Video not found or private." };
+  if (status === 429) return { code: "RATE_LIMITED", message: "Supadata rate limit reached." };
   return { code: "SUPADATA_ERROR", message: `Supadata-Anfrage fehlgeschlagen: HTTP ${status}` };
 }
 
@@ -198,7 +198,7 @@ async function handleFetchTranscript(payload) {
   const { videoId } = payload || {};
   const settings = ZWC_SETTINGS.normalize(await getSettingsRaw());
   if (!settings.supadataApiKey) {
-    return { success: false, error: "MISSING_SUPADATA_KEY", message: "Kein Supadata API-Key hinterlegt." };
+    return { success: false, error: "MISSING_SUPADATA_KEY", message: "No Supadata API key configured." };
   }
 
   const cacheKey = `transcript_${videoId}`;
@@ -429,7 +429,7 @@ function levelLabel(level) {
 }
 
 function targetLanguageLabel(uiLanguage) {
-  return uiLanguage === "en" ? "Englisch" : "Deutsch";
+  return uiLanguage === "de" ? "Deutsch" : "Englisch";
 }
 
 function resolveHanzi(card, script) {
@@ -591,10 +591,10 @@ async function handleGenerateVocabulary(payload) {
   const { videoId, transcriptText, videoTitle, videoDescription, level, script, count, sentences } = payload || {};
   const settings = ZWC_SETTINGS.normalize(await getSettingsRaw());
   if (!settings.anthropicApiKey) {
-    return { success: false, error: "MISSING_AI_KEY", message: "Kein Anthropic API-Key hinterlegt." };
+    return { success: false, error: "MISSING_AI_KEY", message: "No Anthropic API key configured." };
   }
   if (!transcriptText) {
-    return { success: false, error: "NO_TRANSCRIPT", message: "Kein Transkript vorhanden." };
+    return { success: false, error: "NO_TRANSCRIPT", message: "No transcript available." };
   }
 
   const safeLevel = Math.min(ZWC_SETTINGS.MAX_LEVEL, Math.max(ZWC_SETTINGS.MIN_LEVEL, Number(level) || settings.defaultLevel));
@@ -678,7 +678,7 @@ async function handleGenerateVocabulary(payload) {
 async function handleOpenSidePanel(payload, sender) {
   const tabId = (payload && payload.tabId) || (sender && sender.tab && sender.tab.id);
   if (typeof tabId !== "number") {
-    return { success: false, error: "NO_TAB", message: "Kein Tab gefunden." };
+    return { success: false, error: "NO_TAB", message: "No tab found." };
   }
   await chrome.sidePanel.open({ tabId });
   return { success: true };

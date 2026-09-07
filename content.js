@@ -12,7 +12,7 @@ const ACTION_ROW_SELECTOR = "#top-level-buttons-computed";
 // user changes the language while this tab stays open, the button keeps
 // showing the language it started with until the page is reloaded — there's
 // no live-update channel available to a non-trusted context.
-let currentLang = "de";
+let currentLang = "en";
 
 function isVisible(el) {
   const rect = el.getBoundingClientRect();
@@ -81,11 +81,11 @@ function init() {
 async function loadLanguage() {
   try {
     const res = await chrome.runtime.sendMessage({ action: "getSettings" });
-    if (res && res.settings && res.settings.uiLanguage === "en") {
-      currentLang = "en";
+    if (res && res.settings && res.settings.uiLanguage === "de") {
+      currentLang = "de";
     }
   } catch (e) {
-    // Background worker unreachable — keep the German default.
+    // Background worker unreachable — keep the English default.
   }
 }
 

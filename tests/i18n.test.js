@@ -14,8 +14,8 @@ test("t: substitutes {placeholder} params", () => {
   );
 });
 
-test("t: falls back to German, then the bare key, for anything unresolvable", () => {
-  assert.equal(ZWC_I18N.t("fr", "saveButton"), "Speichern");
+test("t: falls back to English, then the bare key, for anything unresolvable", () => {
+  assert.equal(ZWC_I18N.t("fr", "saveButton"), "Save");
   assert.equal(ZWC_I18N.t("de", "totallyUnknownKey"), "totallyUnknownKey");
 });
 

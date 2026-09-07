@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --text: #0f0f0f;
+        --text-muted: #606060;
+        --border: #e0e0e0;
+        --accent: #c0392b;
+        --accent-text: #ffffff;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Noto Sans CJK SC", "Liberation Sans", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+      main { max-width: 420px; margin: 22px auto; padding: 0 22px; }
+      h1 { font-size: 18px; margin-top: 0; }
+      h1 .glyph { font-family: "Noto Serif CJK TC", serif; }
+      h2 { font-size: 15px; margin-top: 28px; }
+      .hint { color: var(--text-muted); font-size: 13px; line-height: 1.5; }
+      .field-group { margin-bottom: 16px; }
+      .field-group label {
+        display: block; font-weight: 500; margin-bottom: 6px; font-size: 13px;
+      }
+      .field-group label.checkbox-label {
+        display: flex; align-items: center; gap: 8px; margin-bottom: 0;
+      }
+      .field-group input, .field-group select {
+        width: 100%; padding: 8px; border-radius: 8px;
+        border: 1px solid var(--border); background: var(--bg);
+        color: var(--text); font-size: 14px; font-family: inherit;
+      }
+      .field-group label.checkbox-label input[type="checkbox"] {
+        width: auto; padding: 0; margin: 0; accent-color: var(--accent);
+      }
+      .field-group a {
+        display: inline-block; margin-top: 4px; font-size: 12px;
+        color: var(--text-muted); text-decoration: none;
+      }
+      .primary-button {
+        padding: 10px 20px; border-radius: 18px; border: none;
+        background: var(--accent); color: var(--accent-text);
+        font-size: 14px; font-weight: 500; font-family: inherit;
+      }
+      .status { margin-left: 12px; font-size: 13px; color: var(--text-muted); }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1><span class="glyph">詞</span> — Settings</h1>
+
+      <p class="hint">
+        This extension uses two API keys of your own: Supadata for YouTube
+        transcripts and Anthropic (Claude) for translation and topic selection.
+        Both stay stored locally on this device — no server of ours, no
+        analytics, no forwarding.
+      </p>
+
+      <section class="field-group">
+        <label>Supadata API key</label>
+        <input type="password" value="••••••••••••••••••••••••" />
+        <a href="#">Create a Supadata key ↗</a>
+      </section>
+
+      <section class="field-group">
+        <label>Anthropic API key</label>
+        <input type="password" value="••••••••••••••••••••••••••••" />
+        <a href="#">Create an Anthropic key ↗</a>
+      </section>
+
+      <section class="field-group">
+        <label>Base language</label>
+        <select><option selected>English</option></select>
+      </section>
+
+      <button type="button" class="primary-button">Save</button>
+      <span class="status">Saved.</span>
+    </main>
+  </body>
+</html>

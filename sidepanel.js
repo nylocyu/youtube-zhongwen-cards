@@ -9,7 +9,7 @@ let currentCards = null; // last generated cards, for TSV export
 let scriptChoice = "simplified";
 
 function currentLang() {
-  return (currentSettings && currentSettings.uiLanguage) || "de";
+  return (currentSettings && currentSettings.uiLanguage) || "en";
 }
 
 function showView(name) {

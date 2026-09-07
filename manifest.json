@@ -1,10 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "詞",
-  "version": "0.2.0",
+  "name": "詞 — Chinese Flashcards for YouTube™",
+  "version": "1.0.0",
   "minimum_chrome_version": "116",
-  "description": "Chinese vocabulary flashcards (HSK) from YouTube videos, with German or English translation, for Anki import.",
-  "permissions": ["sidePanel", "storage", "tabs", "scripting", "downloads"],
+  "description": "Turn any YouTube video into HSK-graded Chinese vocabulary flashcards, ready to import into Anki.",
+  "permissions": ["sidePanel", "storage", "scripting", "downloads"],
   "host_permissions": [
     "https://*.youtube.com/*",
     "https://api.supadata.ai/*",

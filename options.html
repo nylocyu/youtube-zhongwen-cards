@@ -1,44 +1,44 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>詞 — Einstellungen</title>
+    <title>詞 — Settings</title>
     <link rel="stylesheet" href="options.css" />
   </head>
   <body>
     <main>
-      <h1>詞 — <span data-i18n="optionsTitleSuffix">Einstellungen</span></h1>
+      <h1>詞 — <span data-i18n="optionsTitleSuffix">Settings</span></h1>
 
       <p class="hint" data-i18n="apiKeysHint">
-        Diese Extension nutzt zwei eigene API-Keys: Supadata für YouTube-Transkripte und
-        Anthropic (Claude) für Übersetzung und Themenauswahl. Beides bleibt lokal auf diesem Gerät
-        gespeichert — kein eigener Server, keine Analyse, keine Weitergabe.
+        This extension uses two API keys of your own: Supadata for YouTube transcripts and
+        Anthropic (Claude) for translation and topic selection. Both stay stored locally on this
+        device — no server of ours, no analytics, no forwarding.
       </p>
 
       <section class="field-group">
-        <label for="supadata-key" data-i18n="supadataKeyLabel">Supadata API-Key</label>
+        <label for="supadata-key" data-i18n="supadataKeyLabel">Supadata API key</label>
         <input type="password" id="supadata-key" autocomplete="off" placeholder="sd_…" />
-        <a href="https://dash.supadata.ai/auth/sign-up" target="_blank" rel="noopener" data-i18n="supadataKeyLinkText">Supadata-Key erstellen ↗</a>
+        <a href="https://dash.supadata.ai/auth/sign-up" target="_blank" rel="noopener" data-i18n="supadataKeyLinkText">Create a Supadata key ↗</a>
       </section>
 
       <section class="field-group">
-        <label for="anthropic-key" data-i18n="anthropicKeyLabel">Anthropic API-Key</label>
+        <label for="anthropic-key" data-i18n="anthropicKeyLabel">Anthropic API key</label>
         <input type="password" id="anthropic-key" autocomplete="off" placeholder="sk-ant-…" />
-        <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener" data-i18n="anthropicKeyLinkText">Anthropic-Key erstellen ↗</a>
+        <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener" data-i18n="anthropicKeyLinkText">Create an Anthropic key ↗</a>
       </section>
 
       <section class="field-group">
-        <label for="ui-language" data-i18n="baseLanguageLabel">Ausgangssprache</label>
+        <label for="ui-language" data-i18n="baseLanguageLabel">Base language</label>
         <select id="ui-language">
-          <option value="de">Deutsch</option>
           <option value="en">English</option>
+          <option value="de">Deutsch</option>
         </select>
       </section>
 
-      <h2 data-i18n="defaultsHeading">Standardwerte</h2>
+      <h2 data-i18n="defaultsHeading">Defaults</h2>
 
       <section class="field-group">
-        <label for="default-level" data-i18n="hskLevelLabel">HSK-Level</label>
+        <label for="default-level" data-i18n="hskLevelLabel">HSK Level</label>
         <select id="default-level">
           <option value="1">HSK 1</option>
           <option value="2">HSK 2</option>
@@ -51,26 +51,26 @@
       </section>
 
       <section class="field-group">
-        <label for="default-script" data-i18n="scriptLabel">Schrift</label>
+        <label for="default-script" data-i18n="scriptLabel">Script</label>
         <select id="default-script">
-          <option value="simplified" data-i18n="scriptSimplified">简体 Vereinfacht</option>
-          <option value="traditional" data-i18n="scriptTraditional">繁體 Traditionell</option>
+          <option value="simplified" data-i18n="scriptSimplified">简体 Simplified</option>
+          <option value="traditional" data-i18n="scriptTraditional">繁體 Traditional</option>
         </select>
       </section>
 
       <section class="field-group">
-        <label for="default-count" data-i18n="countRangeLabel">Anzahl Vokabeln (10–50)</label>
+        <label for="default-count" data-i18n="countRangeLabel">Number of words (10–50)</label>
         <input type="number" id="default-count" min="10" max="50" step="1" />
       </section>
 
       <section class="field-group">
         <label class="checkbox-label" for="default-sentences">
           <input type="checkbox" id="default-sentences" />
-          <span data-i18n="sentencesLabel">Beispielsätze hinzufügen</span>
+          <span data-i18n="sentencesLabel">Add example sentences</span>
         </label>
       </section>
 
-      <button id="save-button" type="button" class="primary-button" data-i18n="saveButton">Speichern</button>
+      <button id="save-button" type="button" class="primary-button" data-i18n="saveButton">Save</button>
       <span id="save-status" role="status"></span>
     </main>
 

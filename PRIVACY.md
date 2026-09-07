@@ -1,6 +1,6 @@
 # Privacy
 
-詞 is a bring-your-own-key browser extension. It has no
+詞 — Chinese Flashcards for YouTube™ is a bring-your-own-key browser extension. It has no
 backend server of its own, no account system, and does not collect
 analytics or telemetry. This document describes exactly what data goes
 where.
@@ -34,7 +34,7 @@ sends your Anthropic API key plus, depending on the situation:
 
 - If the video's transcript is already Chinese: the selected Chinese words
   and one supporting sentence per word from the transcript, for translation
-  into your chosen base language (German or English, set in Options).
+  into your chosen base language (English or German, set in Options).
 - If the video is not in Chinese: the video's title, a truncated excerpt of
   its description and transcript, and the candidate HSK word list for your
   chosen level — so Claude can pick topically relevant words and translate
@@ -42,7 +42,7 @@ sends your Anthropic API key plus, depending on the situation:
 
 See [Anthropic's privacy policy](https://www.anthropic.com/legal/privacy)
 for how they handle this. Anthropic's response is never trusted outright —
-see the "Vertrauensmodell für KI-Antworten" section in
+see the "Trust model for AI responses" section in
 [README.md](README.md) for how the extension validates it before showing
 you a card.
 

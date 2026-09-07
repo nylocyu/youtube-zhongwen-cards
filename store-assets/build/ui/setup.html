@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="panel.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>詞</h1>
+      <button class="icon-button" type="button">⚙</button>
+    </header>
+
+    <main>
+      <p class="video-title">台灣夜市美食全攻略｜Taiwan Night Market Food Tour</p>
+
+      <div class="field">
+        <label>HSK Level</label>
+        <select>
+          <option selected>HSK 4</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Script</label>
+        <div class="segmented">
+          <button type="button" class="segmented-option" aria-pressed="false">简体 Simplified</button>
+          <button type="button" class="segmented-option" aria-pressed="true">繁體 Traditional</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Number of words: <span>24</span></label>
+        <input type="range" min="10" max="50" value="24" />
+      </div>
+
+      <div class="field">
+        <label class="checkbox-label">
+          <input type="checkbox" checked />
+          <span>Add example sentences</span>
+        </label>
+        <p class="field-hint">
+          For Chinese videos the sentences are taken verbatim from the video;
+          otherwise they are generated to match the topic.
+        </p>
+      </div>
+
+      <button type="button" class="primary-button">Generate vocabulary</button>
+    </main>
+  </body>
+</html>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <title>詞</title>
@@ -8,24 +8,24 @@
   <body>
     <header class="app-header">
       <h1>詞</h1>
-      <button id="open-options" type="button" class="icon-button" title="Einstellungen" data-i18n-title="settingsTitle">⚙️</button>
+      <button id="open-options" type="button" class="icon-button" title="Settings" data-i18n-title="settingsTitle">⚙️</button>
     </header>
 
     <main>
       <section id="view-welcome" class="view">
-        <p data-i18n="welcomeText">Öffne ein YouTube-Video mit Untertiteln, um Chinesisch-Vokabelkarten zu erstellen.</p>
+        <p data-i18n="welcomeText">Open a YouTube video with captions to create Chinese vocabulary flashcards.</p>
       </section>
 
       <section id="view-missing-keys" class="view">
-        <p data-i18n="missingKeysText">Bitte hinterlege zuerst deinen Supadata- und Anthropic-API-Key in den Einstellungen.</p>
-        <button id="missing-keys-open-options" type="button" class="primary-button" data-i18n="openOptionsButton">Einstellungen öffnen</button>
+        <p data-i18n="missingKeysText">Please add your Supadata and Anthropic API keys in the settings first.</p>
+        <button id="missing-keys-open-options" type="button" class="primary-button" data-i18n="openOptionsButton">Open settings</button>
       </section>
 
       <section id="view-setup" class="view">
         <p class="video-title" id="setup-video-title"></p>
 
         <div class="field">
-          <label for="level-select" data-i18n="hskLevelLabel">HSK-Level</label>
+          <label for="level-select" data-i18n="hskLevelLabel">HSK Level</label>
           <select id="level-select">
             <option value="1">HSK 1</option>
             <option value="2">HSK 2</option>
@@ -38,32 +38,32 @@
         </div>
 
         <div class="field">
-          <label data-i18n="scriptLabel">Schrift</label>
+          <label data-i18n="scriptLabel">Script</label>
           <div class="segmented" id="script-toggle" role="group">
-            <button type="button" data-value="simplified" class="segmented-option" data-i18n="scriptSimplified">简体 Vereinfacht</button>
-            <button type="button" data-value="traditional" class="segmented-option" data-i18n="scriptTraditional">繁體 Traditionell</button>
+            <button type="button" data-value="simplified" class="segmented-option" data-i18n="scriptSimplified">简体 Simplified</button>
+            <button type="button" data-value="traditional" class="segmented-option" data-i18n="scriptTraditional">繁體 Traditional</button>
           </div>
         </div>
 
         <div class="field">
-          <label for="count-range"><span data-i18n="countLabel">Anzahl Vokabeln:</span> <span id="count-value">20</span></label>
+          <label for="count-range"><span data-i18n="countLabel">Number of words:</span> <span id="count-value">20</span></label>
           <input type="range" id="count-range" min="10" max="50" step="1" value="20" />
         </div>
 
         <div class="field">
           <label class="checkbox-label" for="sentences-checkbox">
             <input type="checkbox" id="sentences-checkbox" />
-            <span data-i18n="sentencesLabel">Beispielsätze hinzufügen</span>
+            <span data-i18n="sentencesLabel">Add example sentences</span>
           </label>
-          <p class="field-hint" data-i18n="sentencesHint">Bei chinesischen Videos stammen die Sätze wörtlich aus dem Video, sonst werden sie passend zum Thema generiert.</p>
+          <p class="field-hint" data-i18n="sentencesHint">For Chinese videos the sentences are taken verbatim from the video; otherwise they are generated to match the topic.</p>
         </div>
 
-        <button id="generate-button" type="button" class="primary-button" data-i18n="generateButton">Vokabeln generieren</button>
+        <button id="generate-button" type="button" class="primary-button" data-i18n="generateButton">Generate vocabulary</button>
       </section>
 
       <section id="view-loading" class="view">
         <div class="spinner" aria-hidden="true"></div>
-        <p id="loading-phase" data-i18n="loadingGeneric">Wird geladen…</p>
+        <p id="loading-phase" data-i18n="loadingGeneric">Loading…</p>
       </section>
 
       <section id="view-results" class="view">
@@ -74,22 +74,22 @@
               <tr>
                 <th>Hanzi</th>
                 <th>Pinyin</th>
-                <th id="results-translation-header" data-i18n="tableHeaderTranslation">Deutsch</th>
+                <th id="results-translation-header" data-i18n="tableHeaderTranslation">English</th>
               </tr>
             </thead>
             <tbody id="results-tbody"></tbody>
           </table>
         </div>
         <div class="results-actions">
-          <button id="export-button" type="button" class="primary-button" data-i18n="exportButton">Als TSV exportieren</button>
-          <button id="regenerate-button" type="button" class="secondary-button" data-i18n="regenerateButton">Neu generieren</button>
+          <button id="export-button" type="button" class="primary-button" data-i18n="exportButton">Export as TSV</button>
+          <button id="regenerate-button" type="button" class="secondary-button" data-i18n="regenerateButton">Regenerate</button>
         </div>
       </section>
 
       <section id="view-error" class="view">
         <p id="error-message"></p>
-        <button id="error-options-link" type="button" class="secondary-button" hidden data-i18n="openOptionsButton">Einstellungen öffnen</button>
-        <button id="error-back-button" type="button" class="secondary-button" data-i18n="backButton">Zurück</button>
+        <button id="error-options-link" type="button" class="secondary-button" hidden data-i18n="openOptionsButton">Open settings</button>
+        <button id="error-back-button" type="button" class="secondary-button" data-i18n="backButton">Back</button>
       </section>
     </main>
 

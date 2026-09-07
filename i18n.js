@@ -1,4 +1,4 @@
-// Shared bilingual (de/en) string dictionary. Loaded by sidepanel.html and
+// Shared bilingual (en/de) string dictionary. Loaded by sidepanel.html and
 // options.html (<script>), as a content script alongside content.js, and
 // require()-able from Node tests. NOT loaded by background.js — the service
 // worker stays language-agnostic and only ever returns typed error codes;
@@ -155,11 +155,11 @@ function substitute(template, params) {
   return result;
 }
 
-// Never throws on a missing key — falls back to German, then the bare key
+// Never throws on a missing key — falls back to English, then the bare key
 // itself, so a typo shows up as visibly wrong text rather than crashing the UI.
 function t(lang, key, params) {
-  const dict = STRINGS[lang] || STRINGS.de;
-  const template = dict[key] ?? STRINGS.de[key] ?? key;
+  const dict = STRINGS[lang] || STRINGS.en;
+  const template = dict[key] ?? STRINGS.en[key] ?? key;
   return substitute(template, params);
 }
 

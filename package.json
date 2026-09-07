@@ -1,8 +1,8 @@
 {
   "name": "youtube-zhongwen-cards",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "private": true,
-  "description": "Chinesisch-Vokabelkarten (HSK) aus YouTube-Videos, mit deutscher Übersetzung, als Anki-Export.",
+  "description": "Chrome extension: HSK-graded Chinese vocabulary flashcards from YouTube videos, exportable to Anki.",
   "license": "MIT",
   "scripts": {
     "test": "node --test tests/*.test.js",
