@@ -75,7 +75,7 @@ const STRINGS = {
     savedStatus: "Gespeichert.",
 
     // Content script (injected YouTube button)
-    contentButtonLabel: "词 Vokabeln",
+    contentButtonLabel: "詞",
     contentButtonTitle: "Chinesisch-Vokabelkarten aus diesem Video erstellen",
   },
   en: {
@@ -142,7 +142,7 @@ const STRINGS = {
     saveButton: "Save",
     savedStatus: "Saved.",
 
-    contentButtonLabel: "词 Vocab",
+    contentButtonLabel: "詞",
     contentButtonTitle: "Create Chinese vocabulary flashcards from this video",
   },
 };

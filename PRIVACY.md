@@ -1,6 +1,6 @@
 # Privacy
 
-YouTube Zhongwen Cards is a bring-your-own-key browser extension. It has no
+詞 is a bring-your-own-key browser extension. It has no
 backend server of its own, no account system, and does not collect
 analytics or telemetry. This document describes exactly what data goes
 where.

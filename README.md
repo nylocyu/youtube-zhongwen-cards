@@ -1,4 +1,4 @@
-# YouTube Zhongwen Cards
+# 詞
 
 Chrome-Extension (Manifest V3, kein Build-Step), die aus YouTube-Videos
 HSK-Vokabelkarten mit deutscher Übersetzung erstellt und als TSV-Datei für
@@ -15,7 +15,7 @@ gesendet — Details dazu in [PRIVACY.md](PRIVACY.md).
 ## Funktionsweise
 
 1. Auf einem YouTube-Video mit Untertiteln öffnest du das Side Panel (über
-   den injizierten "词 Vokabeln"-Button neben Like/Share, oder über das
+   den injizierten "詞"-Button neben Like/Share, oder über das
    Extension-Icon).
 2. Du wählst dein **HSK-Level** (1–6, oder 7 für die zusammengefasste
    fortgeschrittene Stufe 7–9), die **Schrift** (vereinfacht/traditionell)

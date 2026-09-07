@@ -1,4 +1,4 @@
-// Content script: injects a "Vokabeln"/"Vocab" button into YouTube's action
+// Content script: injects a "詞" button into YouTube's action
 // row (next to Like/Share) that opens the side panel. Re-injects on
 // YouTube's own SPA navigation, since YouTube only fires a real page load
 // once.
@@ -34,10 +34,12 @@ function createButton() {
   button.type = "button";
   button.textContent = ZWC_I18N.t(currentLang, "contentButtonLabel");
   button.title = ZWC_I18N.t(currentLang, "contentButtonTitle");
+  // The label is a single glyph, so the title text is also the accessible name.
+  button.setAttribute("aria-label", button.title);
   button.style.cssText =
-    "margin-left:8px;padding:0 16px;height:36px;border-radius:18px;border:none;" +
+    "margin-left:8px;padding:0;width:36px;height:36px;border-radius:18px;border:none;" +
     "background:var(--yt-spec-badge-chip-background,#f2f2f2);color:var(--yt-spec-text-primary,#0f0f0f);" +
-    "font:inherit;font-weight:500;font-size:14px;cursor:pointer;white-space:nowrap;";
+    "font:inherit;font-weight:500;font-size:16px;cursor:pointer;display:grid;place-items:center;";
   button.addEventListener("click", () => {
     chrome.runtime.sendMessage({ action: "openSidePanel" });
   });
