@@ -3,6 +3,8 @@
 Paste-ready content for the Developer Dashboard. Nothing here ships in the
 extension ZIP.
 
+Published listing: <https://chromewebstore.google.com/detail/pepinhonjmmfbfdllnlfcoadhjemihac>
+
 Before the first submission: developer account ($5 one-time), **2-Step
 Verification enabled** on the Google account (mandatory to publish or update),
 and a verified contact email — all review and rejection mail goes only there.

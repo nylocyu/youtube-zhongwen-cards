@@ -1,5 +1,7 @@
 # 詞 — Chinese Flashcards for YouTube™
 
+**[Install from the Chrome Web Store](https://chromewebstore.google.com/detail/pepinhonjmmfbfdllnlfcoadhjemihac)**
+
 Chrome extension (Manifest V3, no build step) that turns YouTube videos into
 HSK-graded Chinese vocabulary flashcards and exports them as a TSV file for
 Anki import.
@@ -43,6 +45,9 @@ The interface and the card translations default to **English**; German can be
 selected under Base language on the options page.
 
 ## Installation
+
+For normal use, install it from the
+[Chrome Web Store](https://chromewebstore.google.com/detail/pepinhonjmmfbfdllnlfcoadhjemihac). To run it from source:
 
 1. Run `npm run prepare-data` once (downloads the MIT-licensed HSK word list
    and generates `data/hsk-*.json` — these files are already committed, so this
