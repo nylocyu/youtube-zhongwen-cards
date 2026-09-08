@@ -36,13 +36,119 @@ a trademark of Google LLC.
    translation and cannot alter the sentence itself). Non-Chinese videos
    contain no Chinese sentence to quote, so Claude generates one that fits the
    topic at the chosen level.
-6. Export as a `.tsv` file for Anki. Columns in this order, no header row:
-   hanzi, pinyin, translation — map them to fields accordingly on import. With
-   example sentences you get three more columns: sentence, sentence pinyin,
-   sentence translation.
+6. Export as a `.tsv` file for Anki — see [Anki setup](#anki-setup) for the
+   note type to import it into.
 
 The interface and the card translations default to **English**; German can be
 selected under Base language on the options page.
+
+## Anki setup
+
+The export is a plain UTF-8, tab-separated file with **no header row**. Every
+row is a card. Tabs and line breaks inside a field are collapsed to spaces
+before export, so there is no quoting to worry about.
+
+| Column | Field | Present |
+| --- | --- | --- |
+| 1 | Hanzi | always |
+| 2 | Pinyin | always |
+| 3 | Translation | always |
+| 4 | Sentence | only with example sentences enabled |
+| 5 | SentencePinyin | only with example sentences enabled |
+| 6 | SentenceTranslation | only with example sentences enabled |
+
+A file has either three or six columns throughout — never a mix.
+
+### Why a custom note type
+
+Anki's built-in **Basic** note type has two fields (Front/Back), so it cannot
+hold three, let alone six. Create this note type once and every export from
+every video imports into it, with or without sentences.
+
+**Tools → Manage Note Types → Add → Add: Basic → OK**, name it `Chinese
+Vocabulary`. Then, with it selected:
+
+**Fields…** — make the list exactly these six, in this order (rename `Front`
+and `Back`, then add four more):
+
+```
+Hanzi
+Pinyin
+Translation
+Sentence
+SentencePinyin
+SentenceTranslation
+```
+
+Order matters — the import maps by position, not by name. Leave *Sort by this
+field* on `Hanzi`.
+
+**Cards…** — front template:
+
+```html
+<div class="hanzi">{{Hanzi}}</div>
+```
+
+Back template:
+
+```html
+{{FrontSide}}
+<hr id="answer">
+<div class="pinyin">{{Pinyin}}</div>
+<div class="meaning">{{Translation}}</div>
+
+{{#Sentence}}
+<hr>
+<div class="sentence">{{Sentence}}</div>
+<div class="pinyin">{{SentencePinyin}}</div>
+<div class="meaning">{{SentenceTranslation}}</div>
+{{/Sentence}}
+```
+
+The `{{#Sentence}}…{{/Sentence}}` wrapper is what makes one note type serve
+both exports: with a three-column file those fields stay empty and the whole
+block simply doesn't render.
+
+Styling:
+
+```css
+.card {
+  font-family: "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  text-align: center;
+  background: #fff;
+  color: #222;
+}
+.hanzi { font-size: 64px; line-height: 1.3; }
+.sentence { font-size: 28px; line-height: 1.5; margin: 8px 0; }
+.pinyin { font-size: 20px; color: #666; }
+.meaning { font-size: 22px; margin-top: 4px; }
+```
+
+If you also want to be tested in the other direction (meaning → characters),
+add a second card template with `{{Translation}}` on the front and `{{Hanzi}}`
+on the back. Anki then generates two cards per note.
+
+### Importing an export
+
+**File → Import**, pick the `.tsv`, then in the dialog:
+
+- **Notetype**: `Chinese Vocabulary`
+- **Deck**: whichever you use (a single `Chinese` deck works well — the HSK
+  level is a property of the word, not of the deck)
+- **Existing notes**: *Update* — the first field, `Hanzi`, is the key, so a word
+  that shows up in a second video updates its note instead of creating a
+  duplicate
+- **Field separator**: Tab (auto-detected)
+- **Allow HTML in fields**: off — the content is plain text
+- **First row is field names**: off — there is no header, so the first row is a
+  real card
+
+Check the field mapping shows `Hanzi → Hanzi`, `Pinyin → Pinyin` and so on.
+Anki remembers the last mapping, so re-check it the first time you switch
+between a three-column and a six-column export.
+
+To keep levels separate, import into one deck and add a tag per import
+(`hsk4`, or the video's name) rather than creating a deck per video.
 
 ## Installation
 
