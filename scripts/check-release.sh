@@ -37,6 +37,7 @@ public_allowlist=(
   "options.css"
   "prompts/vocab-translate-batch.md"
   "prompts/vocab-topic-select.md"
+  "prompts/vocab-discover.md"
   "data/hsk-1.json"
   "data/hsk-2.json"
   "data/hsk-3.json"

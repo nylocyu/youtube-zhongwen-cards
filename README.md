@@ -39,6 +39,25 @@ a trademark of Google LLC.
 6. Export as a `.tsv` file for Anki — see [Anki setup](#anki-setup) for the
    note type to import it into.
 
+### Discovering words beyond HSK
+
+Steps 3 and 4 can only ever find words that are already in the bundled HSK
+lists, which is the wrong tool for learning the vocabulary of a topic you care
+about. The **Discover new words** option replaces that step: Claude proposes
+words that are *not* in HSK 1 through your chosen level, at roughly that
+level's difficulty. The level becomes a difficulty target rather than a filter.
+
+For Chinese videos every proposed word must occur **verbatim in the
+transcript**, which is checked against the transcript before the card is built
+— a word the video never said is discarded. Non-Chinese videos have no Chinese
+text to check against, so there the words are the model's suggestions for the
+topic, unverified.
+
+Two consequences worth knowing: discovered words have no HSK level, and their
+pinyin comes from the model rather than from the bundled data (there is no
+dictionary for words outside the HSK lists in this extension). Short videos may
+also yield fewer cards than requested — nothing is padded with HSK words.
+
 The interface and the card translations default to **English**; German can be
 selected under Base language on the options page.
 
@@ -197,6 +216,14 @@ never from the language model. Every word id the model returns is checked
 against the actual candidate list — words that aren't found (hallucinations)
 are discarded. Only the translation comes from the model. See
 `validateAndRebuildVocabResponse()` in [vocab-lib.js](vocab-lib.js).
+
+**Discovery mode** deliberately relaxes this, because there is no candidate
+list to check against — see
+[Discovering words beyond HSK](#discovering-words-beyond-hsk). What remains is
+`validateDiscoveredVocabResponse()` in [vocab-lib.js](vocab-lib.js): pure Hanzi
+of plausible word length, nothing already in HSK 1–level, no duplicates, and
+for Chinese videos the word must literally appear in the transcript. Pinyin and
+translation are trusted model output there.
 
 ## Development
 

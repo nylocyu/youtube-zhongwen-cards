@@ -424,6 +424,23 @@ async function loadHskLevelData(level) {
   return data;
 }
 
+// Everything the learner is assumed to know at `level`: all HSK levels up to
+// and including it, both script forms. Discovery mode subtracts this set.
+const knownWordSetCache = new Map();
+
+async function loadKnownWordSet(level) {
+  if (knownWordSetCache.has(level)) return knownWordSetCache.get(level);
+  const set = new Set();
+  for (let l = ZWC_SETTINGS.MIN_LEVEL; l <= level; l++) {
+    for (const word of await loadHskLevelData(l)) {
+      set.add(word.simplified);
+      if (word.traditional) set.add(word.traditional);
+    }
+  }
+  knownWordSetCache.set(level, set);
+  return set;
+}
+
 function levelLabel(level) {
   return level === 7 ? "HSK 7–9" : `HSK ${level}`;
 }
@@ -485,6 +502,20 @@ function sentenceFragments(caseKey, withSentences, targetLanguage) {
 
 const CASE_B_CANDIDATE_LIMIT = 400;
 const CASE_B_TRANSCRIPT_EXCERPT_CHARS = 3500;
+// Discovery reads the transcript itself instead of matching against a list, so
+// it gets a bigger window — words it never sees are words it cannot suggest.
+const DISCOVER_TRANSCRIPT_EXCERPT_CHARS = 8000;
+
+function buildVideoSummary(videoTitle, videoDescription, transcriptText, excerptChars) {
+  return `Titel: ${videoTitle || ""}\nBeschreibung: ${(videoDescription || "").slice(
+    0,
+    500
+  )}\nTranskript-Auszug: ${(transcriptText || "").slice(0, excerptChars)}`;
+}
+
+function scriptLabel(script) {
+  return script === "traditional" ? "traditionellen Zeichen" : "vereinfachten Zeichen";
+}
 
 async function runCaseA(
   transcriptText,
@@ -556,10 +587,12 @@ async function runCaseB(
     pinyin: c.pinyin,
   }));
 
-  const videoSummary = `Titel: ${videoTitle || ""}\nBeschreibung: ${(videoDescription || "").slice(
-    0,
-    500
-  )}\nTranskript-Auszug: ${(transcriptText || "").slice(0, CASE_B_TRANSCRIPT_EXCERPT_CHARS)}`;
+  const videoSummary = buildVideoSummary(
+    videoTitle,
+    videoDescription,
+    transcriptText,
+    CASE_B_TRANSCRIPT_EXCERPT_CHARS
+  );
 
   const fragments = sentenceFragments("B", withSentences, targetLanguage);
   const [systemPrompt, userPrompt] = await Promise.all([
@@ -587,8 +620,70 @@ async function runCaseB(
   return ZWC_VOCAB.validateAndRebuildVocabResponse(parsed, sourceById);
 }
 
+// Discovery mode: topic vocabulary from outside the HSK lists, at the chosen
+// level's difficulty. Handles both video kinds — they differ only in what the
+// model gets as context and whether its answers can be checked against the
+// transcript. Sentence fragments are the Case B ones in both: the words are
+// unknown before the call, so no context sentence can be supplied up front.
+async function runDiscover(
+  transcriptText,
+  videoTitle,
+  videoDescription,
+  isChinese,
+  knownWords,
+  safeScript,
+  safeLevel,
+  safeCount,
+  targetLanguage,
+  withSentences
+) {
+  const context = isChinese
+    ? `Transkript-Auszug:\n${(transcriptText || "").slice(0, DISCOVER_TRANSCRIPT_EXCERPT_CHARS)}`
+    : buildVideoSummary(videoTitle, videoDescription, transcriptText, CASE_B_TRANSCRIPT_EXCERPT_CHARS);
+
+  const sourceRule = isChinese
+    ? `Du bekommst einen Auszug aus dem chinesischen Transkript eines Videos. Wähle daraus Wörter aus,
+die inhaltlich das Thema des Videos tragen. Jedes zurückgegebene Wort MUSS wörtlich und exakt in
+diesem Auszug vorkommen — Wörter, die dort nicht stehen, werden verworfen.`
+    : `Du bekommst die Zusammenfassung eines Videos, das NICHT auf Chinesisch ist. Schlage chinesische
+Wörter vor, die inhaltlich zum Thema des Videos gehören und die man braucht, um auf Chinesisch
+über dieses Thema zu sprechen.`;
+
+  const fragments = sentenceFragments("B", withSentences, targetLanguage);
+  const variables = {
+    sourceRule,
+    context,
+    level: levelLabel(safeLevel),
+    scriptLabel: scriptLabel(safeScript),
+    count: String(safeCount),
+    targetLanguage,
+    ...fragments,
+  };
+  const [systemPrompt, userPrompt] = await Promise.all([
+    loadPromptSection("vocab-discover.md", "System prompt", variables),
+    loadPromptSection("vocab-discover.md", "User prompt", variables),
+  ]);
+
+  const settings = ZWC_SETTINGS.normalize(await getSettingsRaw());
+  const content = await requestAiCompletion({
+    apiKey: settings.anthropicApiKey,
+    baseUrl: ANTHROPIC_BASE_URL,
+    model: ANTHROPIC_MODEL,
+    system: systemPrompt,
+    userContent: userPrompt,
+  });
+
+  const parsed = ZWC_VOCAB.parseLooseJson(content);
+  return ZWC_VOCAB.validateDiscoveredVocabResponse(parsed, {
+    // Only a Chinese transcript can prove a word was really in the video.
+    transcript: isChinese ? transcriptText : null,
+    knownWords,
+  });
+}
+
 async function handleGenerateVocabulary(payload) {
-  const { videoId, transcriptText, videoTitle, videoDescription, level, script, count, sentences } = payload || {};
+  const { videoId, transcriptText, videoTitle, videoDescription, level, script, count, sentences, discover } =
+    payload || {};
   const settings = ZWC_SETTINGS.normalize(await getSettingsRaw());
   if (!settings.anthropicApiKey) {
     return { success: false, error: "MISSING_AI_KEY", message: "No Anthropic API key configured." };
@@ -601,23 +696,38 @@ async function handleGenerateVocabulary(payload) {
   const safeCount = Math.min(ZWC_SETTINGS.MAX_COUNT, Math.max(ZWC_SETTINGS.MIN_COUNT, Number(count) || settings.defaultCount));
   const safeScript = script === "traditional" ? "traditional" : "simplified";
   const withSentences = sentences === true;
+  const withDiscover = discover === true;
 
   const targetLanguage = targetLanguageLabel(settings.uiLanguage);
   const cacheKey = `vocab_${videoId}_HSK${safeLevel}_${safeScript}_${safeCount}_${settings.uiLanguage}_s${
     withSentences ? 1 : 0
-  }`;
+  }_d${withDiscover ? 1 : 0}`;
   const cached = await getCached(cacheKey);
   if (cached) {
     return { success: true, cards: cached.cards, caseUsed: cached.caseUsed, fromCache: true };
   }
 
-  const levelWords = await loadHskLevelData(safeLevel);
   const isChinese = ZWC_VOCAB.detectIsChineseText(transcriptText);
 
   let rebuilt;
   let caseUsed;
   try {
-    if (isChinese) {
+    if (withDiscover) {
+      caseUsed = "D";
+      rebuilt = await runDiscover(
+        transcriptText,
+        videoTitle,
+        videoDescription,
+        isChinese,
+        await loadKnownWordSet(safeLevel),
+        safeScript,
+        safeLevel,
+        safeCount,
+        targetLanguage,
+        withSentences
+      );
+    } else if (isChinese) {
+      const levelWords = await loadHskLevelData(safeLevel);
       caseUsed = "A";
       rebuilt = await runCaseA(
         transcriptText,
@@ -634,7 +744,7 @@ async function handleGenerateVocabulary(payload) {
         transcriptText,
         videoTitle,
         videoDescription,
-        levelWords,
+        await loadHskLevelData(safeLevel),
         safeScript,
         safeLevel,
         safeCount,
@@ -647,21 +757,21 @@ async function handleGenerateVocabulary(payload) {
   }
 
   if (!rebuilt.cards || rebuilt.cards.length === 0) {
-    return {
-      success: false,
-      error: caseUsed === "A" ? "NO_MATCHES" : "NO_CARDS",
-      message:
-        caseUsed === "A"
-          ? "Keine passenden Vokabeln auf diesem Level im Transkript gefunden."
-          : "Es konnten keine gültigen Vokabelkarten erzeugt werden.",
+    const EMPTY = {
+      A: ["NO_MATCHES", "Keine passenden Vokabeln auf diesem Level im Transkript gefunden."],
+      B: ["NO_CARDS", "Es konnten keine gültigen Vokabelkarten erzeugt werden."],
+      D: ["NO_DISCOVERIES", "Keine neuen Vokabeln außerhalb der HSK-Liste gefunden."],
     };
+    const [error, message] = EMPTY[caseUsed];
+    return { success: false, error, message };
   }
 
   const finalCards = rebuilt.cards.map((c) => ({
     hanzi: resolveHanzi(c, safeScript),
     pinyin: c.pinyin,
     translation: c.translation,
-    level: c.level.value,
+    // Discovered words are outside the HSK lists and have no level.
+    level: c.level ? c.level.value : null,
     sentence: c.sentence,
     sentencePinyin: c.sentencePinyin,
     sentenceTranslation: c.sentenceTranslation,
