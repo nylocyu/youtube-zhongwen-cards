@@ -5,6 +5,7 @@ const {
   matchCandidatesInTranscript,
   parseLooseJson,
   validateAndRebuildVocabResponse,
+  validateDiscoveredVocabResponse,
   buildTsv,
 } = require("../vocab-lib.js");
 
@@ -195,4 +196,77 @@ test("buildTsv: six columns once sentences are present", () => {
   const cols = tsv.trim().split("\t");
   assert.equal(cols.length, 6);
   assert.equal(cols[3], "气候变化很重要。");
+});
+
+// ---------- discovery mode ----------
+
+const DISCOVER_TRANSCRIPT = "今天我们聊聊碳排放和可再生能源，还有气候变化的影响。";
+const KNOWN = new Set(["气候", "氣候"]);
+
+function discover(items, opts = { transcript: DISCOVER_TRANSCRIPT, knownWords: KNOWN }) {
+  return validateDiscoveredVocabResponse(items, opts);
+}
+
+test("validateDiscoveredVocabResponse: a word present in the transcript becomes a level-less card", () => {
+  const { cards } = discover([
+    { word: "碳排放", pinyin: "tàn páifàng", translation: "CO₂-Ausstoß" },
+  ]);
+  assert.equal(cards.length, 1);
+  assert.equal(cards[0].simplified, "碳排放");
+  assert.equal(cards[0].traditional, "碳排放");
+  assert.equal(cards[0].level, null);
+  assert.equal(cards[0].discovered, true);
+});
+
+test("validateDiscoveredVocabResponse: `hanzi` overrides the transcript form for display", () => {
+  const { cards } = discover([
+    { word: "可再生能源", hanzi: "可再生能源", pinyin: "kě zàishēng néngyuán", translation: "erneuerbare Energie" },
+  ]);
+  assert.equal(cards.length, 1);
+  assert.equal(cards[0].simplified, "可再生能源");
+});
+
+test("validateDiscoveredVocabResponse: a word not in the transcript is dropped (hallucination guard)", () => {
+  const { cards, droppedIds } = discover([
+    { word: "核聚变", pinyin: "hé jùbiàn", translation: "Kernfusion" },
+  ]);
+  assert.equal(cards.length, 0);
+  assert.deepEqual(droppedIds, ["核聚变"]);
+});
+
+test("validateDiscoveredVocabResponse: words already covered by HSK 1..level are dropped", () => {
+  const { cards } = discover([{ word: "气候", pinyin: "qìhòu", translation: "Klima" }]);
+  assert.equal(cards.length, 0);
+});
+
+test("validateDiscoveredVocabResponse: non-Hanzi, over-long and incomplete items are dropped", () => {
+  const { cards } = discover([
+    { word: "carbon", pinyin: "tàn", translation: "Kohlenstoff" },
+    { word: "碳排放🌍", pinyin: "tàn páifàng", translation: "CO₂" },
+    { word: "碳排放和可再生能源还有", pinyin: "x", translation: "y" },
+    { word: "碳排放", pinyin: "", translation: "CO₂-Ausstoß" },
+    { word: "碳排放", pinyin: "tàn páifàng", translation: "" },
+  ]);
+  assert.equal(cards.length, 0);
+});
+
+test("validateDiscoveredVocabResponse: duplicates yield one card", () => {
+  const { cards } = discover([
+    { word: "碳排放", pinyin: "tàn páifàng", translation: "CO₂-Ausstoß" },
+    { word: "碳排放", pinyin: "tàn páifàng", translation: "Emissionen" },
+  ]);
+  assert.equal(cards.length, 1);
+});
+
+test("validateDiscoveredVocabResponse: without a transcript (non-Chinese video) nothing is verified", () => {
+  const { cards } = validateDiscoveredVocabResponse(
+    [{ word: "核聚变", pinyin: "hé jùbiàn", translation: "Kernfusion", sentence: "核聚变是未来。" }],
+    { transcript: null, knownWords: KNOWN }
+  );
+  assert.equal(cards.length, 1);
+  assert.equal(cards[0].sentence, "核聚变是未来。");
+});
+
+test("validateDiscoveredVocabResponse: non-array input yields no cards", () => {
+  assert.deepEqual(validateDiscoveredVocabResponse(null, {}).cards, []);
 });

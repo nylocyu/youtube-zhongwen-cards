@@ -10,6 +10,7 @@ const DEFAULTS = Object.freeze({
   defaultScript: "simplified", // "simplified" | "traditional"
   defaultCount: 20, // 10-50
   defaultSentences: false, // add an example sentence (+ its pinyin/translation) per card
+  defaultDiscover: false, // propose words outside HSK 1..level instead of matching the list
   uiLanguage: "en", // "en" | "de" — also the language cards get translated into
 });
 
@@ -35,6 +36,7 @@ function normalize(input) {
     defaultScript: src.defaultScript === "traditional" ? "traditional" : "simplified",
     defaultCount: clampInt(src.defaultCount, MIN_COUNT, MAX_COUNT, DEFAULTS.defaultCount),
     defaultSentences: src.defaultSentences === true,
+    defaultDiscover: src.defaultDiscover === true,
     uiLanguage: src.uiLanguage === "de" ? "de" : "en",
   };
 }

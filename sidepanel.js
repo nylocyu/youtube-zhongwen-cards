@@ -49,6 +49,7 @@ function applyDefaultsToControls() {
   document.getElementById("count-range").value = String(currentSettings.defaultCount);
   document.getElementById("count-value").textContent = String(currentSettings.defaultCount);
   document.getElementById("sentences-checkbox").checked = currentSettings.defaultSentences;
+  document.getElementById("discover-checkbox").checked = currentSettings.defaultDiscover;
   scriptChoice = currentSettings.defaultScript;
   updateScriptToggle();
 }
@@ -103,7 +104,8 @@ function renderResults(vocabRes) {
       tbody.appendChild(sentenceTr);
     }
   }
-  const caseLabelKey = vocabRes.caseUsed === "A" ? "caseLabelTranscript" : "caseLabelTopic";
+  const CASE_LABEL_KEYS = { A: "caseLabelTranscript", B: "caseLabelTopic", D: "caseLabelDiscover" };
+  const caseLabelKey = CASE_LABEL_KEYS[vocabRes.caseUsed] || "caseLabelTopic";
   document.getElementById("results-summary").textContent = ZWC_I18N.t(lang, "resultsSummary", {
     count: vocabRes.cards.length,
     caseLabel: ZWC_I18N.t(lang, caseLabelKey),
@@ -128,6 +130,7 @@ async function onGenerate() {
     const level = Number(document.getElementById("level-select").value);
     const count = Number(document.getElementById("count-range").value);
     const sentences = document.getElementById("sentences-checkbox").checked;
+    const discover = document.getElementById("discover-checkbox").checked;
 
     const vocabRes = await sendMessage("generateVocabulary", {
       videoId: currentVideo.videoId,
@@ -138,6 +141,7 @@ async function onGenerate() {
       script: scriptChoice,
       count,
       sentences,
+      discover,
     });
 
     if (!vocabRes.success) {
@@ -154,6 +158,7 @@ async function onGenerate() {
       defaultScript: scriptChoice,
       defaultCount: count,
       defaultSentences: sentences,
+      defaultDiscover: discover,
     };
     await sendMessage("saveSettings", { settings: currentSettings });
   } catch (err) {

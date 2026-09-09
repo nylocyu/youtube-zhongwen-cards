@@ -19,6 +19,9 @@ const STRINGS = {
     sentencesLabel: "Beispielsätze hinzufügen",
     sentencesHint:
       "Bei chinesischen Videos stammen die Sätze wörtlich aus dem Video, sonst werden sie passend zum Thema generiert.",
+    discoverLabel: "Neue Wörter entdecken",
+    discoverHint:
+      "Themenvokabular außerhalb der HSK-Listen. Das Level gibt dann nur noch den Schwierigkeitsgrad vor — bei kurzen Videos können weniger Karten herauskommen.",
     generateButton: "Vokabeln generieren",
     loadingGeneric: "Wird geladen…",
     tableHeaderTranslation: "Deutsch",
@@ -32,6 +35,7 @@ const STRINGS = {
     resultsSummary: "{count} Vokabeln ({caseLabel})",
     caseLabelTranscript: "aus dem Transkript",
     caseLabelTopic: "thematisch generiert",
+    caseLabelDiscover: "neu entdeckt, außerhalb HSK",
     tsvFilename: "chinesisch-vokabeln-{videoId}-HSK{level}-{count}.tsv",
     requestTimeout: "Zeitüberschreitung bei der Anfrage.",
 
@@ -48,6 +52,8 @@ const STRINGS = {
     "error.NOT_A_VIDEO": "Kein YouTube-Video in diesem Tab geöffnet.",
     "error.NO_MATCHES": "Keine passenden Vokabeln auf diesem Level im Transkript gefunden.",
     "error.NO_CARDS": "Es konnten keine gültigen Vokabelkarten erzeugt werden.",
+    "error.NO_DISCOVERIES":
+      "Keine neuen Vokabeln außerhalb der HSK-Liste gefunden. Versuche ein niedrigeres Level oder ein längeres Video.",
     "error.NO_TAB": "Kein aktiver Tab gefunden.",
     "error.SUPADATA_ERROR": "Supadata-Anfrage fehlgeschlagen.",
     "error.SUPADATA_TIMEOUT": "Supadata-Anfrage hat zu lange gedauert.",
@@ -91,6 +97,9 @@ const STRINGS = {
     sentencesLabel: "Add example sentences",
     sentencesHint:
       "For Chinese videos the sentences are taken verbatim from the video; otherwise they are generated to match the topic.",
+    discoverLabel: "Discover new words",
+    discoverHint:
+      "Topic vocabulary from outside the HSK lists. The level then only sets the difficulty — short videos may yield fewer cards.",
     generateButton: "Generate vocabulary",
     loadingGeneric: "Loading…",
     tableHeaderTranslation: "English",
@@ -103,6 +112,7 @@ const STRINGS = {
     resultsSummary: "{count} words ({caseLabel})",
     caseLabelTranscript: "from the transcript",
     caseLabelTopic: "topic-generated",
+    caseLabelDiscover: "newly discovered, outside HSK",
     tsvFilename: "chinese-vocab-{videoId}-HSK{level}-{count}.tsv",
     requestTimeout: "The request timed out.",
 
@@ -117,6 +127,8 @@ const STRINGS = {
     "error.NOT_A_VIDEO": "No YouTube video open in this tab.",
     "error.NO_MATCHES": "No matching vocabulary found at this level in the transcript.",
     "error.NO_CARDS": "No valid vocabulary cards could be generated.",
+    "error.NO_DISCOVERIES":
+      "No new vocabulary outside the HSK list was found. Try a lower level or a longer video.",
     "error.NO_TAB": "No active tab found.",
     "error.SUPADATA_ERROR": "The Supadata request failed.",
     "error.SUPADATA_TIMEOUT": "The Supadata request timed out.",

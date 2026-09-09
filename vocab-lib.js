@@ -138,6 +138,71 @@ function validateAndRebuildVocabResponse(llmItems, sourceById) {
   return { cards, droppedIds };
 }
 
+// Discovery mode: the words come from the model, not from a bundled list, so
+// there is no ground truth to fall back on — validation can only reject, never
+// repair. Four guards, cheapest first: pure Hanzi of plausible word length,
+// not already known (HSK 1..level), no duplicates, and — when `transcript` is
+// given (Chinese video) — the word must literally occur in it, which is the
+// only real anti-hallucination anchor available. `pinyin` and `translation`
+// are necessarily trusted model output; there is no dictionary in this repo.
+//
+// llmItems shape: [{word, hanzi?, pinyin, translation, sentence?,
+// sentencePinyin?, sentenceTranslation?}]. `word` is the form as it appears in
+// the transcript (what gets verified); `hanzi` is the same word in the user's
+// chosen script and may differ — it falls back to `word` when missing.
+const HANZI_ONLY = /^[㐀-䶿一-鿿]{1,6}$/;
+
+function validateDiscoveredVocabResponse(llmItems, { transcript = null, knownWords = null } = {}) {
+  const cards = [];
+  const droppedIds = [];
+
+  if (!Array.isArray(llmItems)) {
+    return { cards, droppedIds };
+  }
+
+  const text = transcript == null ? null : String(transcript);
+  const seen = new Set();
+  for (const item of llmItems) {
+    if (!item || typeof item !== "object") continue;
+    const word = trimmedString(item.word);
+    const display = trimmedString(item.hanzi) || word;
+    const pinyin = trimmedString(item.pinyin);
+    const translation = trimmedString(item.translation);
+
+    if (!HANZI_ONLY.test(word) || !HANZI_ONLY.test(display) || !pinyin || !translation) {
+      if (word) droppedIds.push(word);
+      continue;
+    }
+    // Already covered by the chosen level (and everything below it) — the
+    // whole point of this mode is what the HSK lists do not contain.
+    if (knownWords && (knownWords.has(word) || knownWords.has(display))) {
+      droppedIds.push(word);
+      continue;
+    }
+    if (text !== null && countOccurrences(text, word) === 0) {
+      droppedIds.push(word);
+      continue;
+    }
+    if (seen.has(display)) continue;
+    seen.add(display);
+
+    cards.push({
+      simplified: display,
+      traditional: display,
+      pinyin: pinyin.slice(0, MAX_TRANSLATION_LENGTH),
+      zhuyin: "",
+      level: null,
+      translation: translation.slice(0, MAX_TRANSLATION_LENGTH),
+      sentence: trimmedString(item.sentence).slice(0, MAX_SENTENCE_LENGTH),
+      sentencePinyin: trimmedString(item.sentencePinyin).slice(0, MAX_SENTENCE_PINYIN_LENGTH),
+      sentenceTranslation: trimmedString(item.sentenceTranslation).slice(0, MAX_TRANSLATION_LENGTH),
+      discovered: true,
+    });
+  }
+
+  return { cards, droppedIds };
+}
+
 function sanitizeTsvField(value) {
   return String(value ?? "").replace(/[\t\r\n]+/g, " ").trim();
 }
@@ -176,6 +241,7 @@ const ZWC_VOCAB = {
   matchCandidatesInTranscript,
   parseLooseJson,
   validateAndRebuildVocabResponse,
+  validateDiscoveredVocabResponse,
   buildTsv,
 };
 
